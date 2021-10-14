@@ -354,7 +354,7 @@ describe('Tooltip', () => {
 
       tooltip.dispose()
 
-      expect(Tooltip.getInstance(tooltipEl)).toEqual(null)
+      expect(Tooltip.getInstance(tooltipEl)).toBeNull()
       expect(removeEventSpy.calls.allArgs()).toEqual(expectedArgs)
     })
 
@@ -369,8 +369,8 @@ describe('Tooltip', () => {
       })
       tooltipEl.addEventListener('hidden.bs.tooltip', () => {
         tooltip.dispose()
-        expect(tooltip.tip).toEqual(null)
-        expect(Tooltip.getInstance(tooltipEl)).toEqual(null)
+        expect(tooltip.tip).toBeNull()
+        expect(Tooltip.getInstance(tooltipEl)).toBeNull()
         done()
       })
 
@@ -1207,7 +1207,7 @@ describe('Tooltip', () => {
 
       tooltip.setContent({ '.tooltip': content })
       expect(tooltip.getTipElement().querySelector('div').id).toEqual('childContent')
-      expect(tooltip.getTipElement().querySelector('button')).toEqual(null)
+      expect(tooltip.getTipElement().querySelector('button')).toBeNull()
     })
 
     it('should add text content', () => {
@@ -1260,7 +1260,7 @@ describe('Tooltip', () => {
 
       const div = fixtureEl.querySelector('div')
 
-      expect(Tooltip.getInstance(div)).toEqual(null)
+      expect(Tooltip.getInstance(div)).toBeNull()
     })
   })
 
@@ -1334,7 +1334,7 @@ describe('Tooltip', () => {
 
       const div = fixtureEl.querySelector('div')
 
-      expect(Tooltip.getInstance(div)).toEqual(null)
+      expect(Tooltip.getInstance(div)).toBeNull()
       expect(Tooltip.getOrCreateInstance(div)).toBeInstanceOf(Tooltip)
     })
 
@@ -1343,7 +1343,7 @@ describe('Tooltip', () => {
 
       const div = fixtureEl.querySelector('div')
 
-      expect(Tooltip.getInstance(div)).toEqual(null)
+      expect(Tooltip.getInstance(div)).toBeNull()
       const tooltip = Tooltip.getOrCreateInstance(div, {
         title: () => 'test'
       })
