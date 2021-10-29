@@ -584,9 +584,9 @@ class Tooltip extends BaseComponent {
   _getConfig(config) {
     const dataAttributes = Manipulator.getDataAttributes(this._element)
 
-    for (const dataAttr of Object.keys(dataAttributes)) {
-      if (DISALLOWED_ATTRIBUTES.has(dataAttr)) {
-        delete dataAttributes[dataAttr]
+    for (const dataAttribute of Object.keys(dataAttributes)) {
+      if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
+        delete dataAttributes[dataAttribute]
       }
     }
 
