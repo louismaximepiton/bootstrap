@@ -19,7 +19,7 @@ describe('Manipulator', () => {
       const div = fixtureEl.querySelector('div')
 
       Manipulator.setDataAttribute(div, 'key', 'value')
-      expect(div.getAttribute('data-bs-key')).toEqual('value')
+      expect(div.getAttribute('data-bs-key')).toBe('value')
     })
 
     it('should set data attribute in kebab case', () => {
@@ -28,7 +28,7 @@ describe('Manipulator', () => {
       const div = fixtureEl.querySelector('div')
 
       Manipulator.setDataAttribute(div, 'testKey', 'value')
-      expect(div.getAttribute('data-bs-test-key')).toEqual('value')
+      expect(div.getAttribute('data-bs-test-key')).toBe('value')
     })
   })
 
@@ -40,8 +40,8 @@ describe('Manipulator', () => {
 
       Manipulator.removeDataAttribute(div, 'key')
       expect(div.getAttribute('data-bs-key')).toBeNull()
-      expect(div.getAttribute('data-key-bs')).toEqual('postfixed')
-      expect(div.getAttribute('data-key')).toEqual('value')
+      expect(div.getAttribute('data-key-bs')).toBe('postfixed')
+      expect(div.getAttribute('data-key')).toBe('value')
     })
 
     it('should remove data attribute in kebab case', () => {
@@ -78,7 +78,7 @@ describe('Manipulator', () => {
 
       const div = fixtureEl.querySelector('div')
 
-      expect(Manipulator.getDataAttribute(div, 'key')).toEqual('value')
+      expect(Manipulator.getDataAttribute(div, 'key')).toBe('value')
       expect(Manipulator.getDataAttribute(div, 'test')).toBeNull()
       expect(Manipulator.getDataAttribute(div, 'toggle')).toBeNull()
     })
@@ -88,7 +88,7 @@ describe('Manipulator', () => {
 
       const div = fixtureEl.querySelector('div')
 
-      expect(Manipulator.getDataAttribute(div, 'testKey')).toEqual('value')
+      expect(Manipulator.getDataAttribute(div, 'testKey')).toBe('value')
     })
 
     it('should normalize data', () => {
@@ -96,13 +96,13 @@ describe('Manipulator', () => {
 
       const div = fixtureEl.querySelector('div')
 
-      expect(Manipulator.getDataAttribute(div, 'test')).toEqual(false)
+      expect(Manipulator.getDataAttribute(div, 'test')).toBeFalse()
 
       div.setAttribute('data-bs-test', 'true')
-      expect(Manipulator.getDataAttribute(div, 'test')).toEqual(true)
+      expect(Manipulator.getDataAttribute(div, 'test')).toBeTrue()
 
       div.setAttribute('data-bs-test', '1')
-      expect(Manipulator.getDataAttribute(div, 'test')).toEqual(1)
+      expect(Manipulator.getDataAttribute(div, 'test')).toBe(1)
     })
   })
 

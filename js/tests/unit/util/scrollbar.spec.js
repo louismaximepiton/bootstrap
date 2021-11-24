@@ -58,9 +58,9 @@ describe('ScrollBar', () => {
       const result = new ScrollBarHelper().isOverflowing()
 
       if (isScrollBarHidden()) {
-        expect(result).toEqual(false)
+        expect(result).toBeFalse()
       } else {
-        expect(result).toEqual(true)
+        expect(result).toBeTrue()
       }
     })
 
@@ -73,7 +73,7 @@ describe('ScrollBar', () => {
       const scrollBar = new ScrollBarHelper()
       const result = scrollBar.isOverflowing()
 
-      expect(result).toEqual(false)
+      expect(result).toBeFalse()
     })
   })
 
@@ -102,7 +102,7 @@ describe('ScrollBar', () => {
 
       const result = new ScrollBarHelper().getWidth()
 
-      expect(result).toEqual(0)
+      expect(result).toBe(0)
     })
   })
 
@@ -128,18 +128,18 @@ describe('ScrollBar', () => {
 
       let currentPadding = getPaddingX(fixedEl)
       let currentPadding2 = getPaddingX(fixedEl2)
-      expect(getPaddingAttr(fixedEl)).toEqual(`${originalPadding}px`, 'original fixed element padding should be stored in data-bs-padding-right')
-      expect(getPaddingAttr(fixedEl2)).toEqual(`${originalPadding2}px`, 'original fixed element padding should be stored in data-bs-padding-right')
-      expect(currentPadding).toEqual(expectedPadding, 'fixed element padding should be adjusted while opening')
-      expect(currentPadding2).toEqual(expectedPadding2, 'fixed element padding should be adjusted while opening')
+      expect(getPaddingAttr(fixedEl)).toBe(`${originalPadding}px`)
+      expect(getPaddingAttr(fixedEl2)).toBe(`${originalPadding2}px`)
+      expect(currentPadding).toBe(expectedPadding)
+      expect(currentPadding2).toBe(expectedPadding2)
 
       scrollBar.reset()
       currentPadding = getPaddingX(fixedEl)
       currentPadding2 = getPaddingX(fixedEl2)
       expect(getPaddingAttr(fixedEl)).toBeNull()
       expect(getPaddingAttr(fixedEl2)).toBeNull()
-      expect(currentPadding).toEqual(originalPadding, 'fixed element padding should be reset after closing')
-      expect(currentPadding2).toEqual(originalPadding2, 'fixed element padding should be reset after closing')
+      expect(currentPadding).toBe(originalPadding)
+      expect(currentPadding2).toBe(originalPadding2)
       done()
     })
 
@@ -159,16 +159,16 @@ describe('ScrollBar', () => {
       const expectedPadding = originalPadding + scrollBar.getWidth()
       scrollBar.hide()
 
-      expect(getMarginAttr(stickyTopEl)).toEqual(`${originalMargin}px`, 'original sticky element margin should be stored in data-bs-margin-right')
-      expect(getMarginX(stickyTopEl)).toEqual(expectedMargin, 'sticky element margin should be adjusted while opening')
-      expect(getPaddingAttr(stickyTopEl)).toEqual(`${originalPadding}px`, 'original sticky element margin should be stored in data-bs-margin-right')
-      expect(getPaddingX(stickyTopEl)).toEqual(expectedPadding, 'sticky element margin should be adjusted while opening')
+      expect(getMarginAttr(stickyTopEl)).toBe(`${originalMargin}px`)
+      expect(getMarginX(stickyTopEl)).toBe(expectedMargin)
+      expect(getPaddingAttr(stickyTopEl)).toBe(`${originalPadding}px`)
+      expect(getPaddingX(stickyTopEl)).toBe(expectedPadding)
 
       scrollBar.reset()
       expect(getMarginAttr(stickyTopEl)).toBeNull()
-      expect(getMarginX(stickyTopEl)).toEqual(originalMargin, 'sticky element margin should be reset after closing')
+      expect(getMarginX(stickyTopEl)).toBe(originalMargin)
       expect(getPaddingAttr(stickyTopEl)).toBeNull()
-      expect(getPaddingX(stickyTopEl)).toEqual(originalPadding, 'sticky element margin should be reset after closing')
+      expect(getPaddingX(stickyTopEl)).toBe(originalPadding)
       done()
     })
 
@@ -187,8 +187,8 @@ describe('ScrollBar', () => {
       const currentMargin = getMarginX(stickyTopEl)
       const currentPadding = getPaddingX(stickyTopEl)
 
-      expect(currentMargin).toEqual(originalMargin, 'sticky element\'s margin should not be adjusted while opening')
-      expect(currentPadding).toEqual(originalPadding, 'sticky element\'s padding should not be adjusted while opening')
+      expect(currentMargin).toBe(originalMargin)
+      expect(currentPadding).toBe(originalPadding)
 
       scrollBar.reset()
     })
@@ -212,16 +212,16 @@ describe('ScrollBar', () => {
 
       scrollBar.hide()
 
-      expect(getPaddingX(stickyEl)).toEqual(scrollBarWidth + originalPadding)
+      expect(getPaddingX(stickyEl)).toBe(scrollBarWidth + originalPadding)
       const expectedMargin = scrollBarWidth + originalMargin
-      expect(getMarginX(stickyEl)).toEqual(expectedMargin === 0 ? expectedMargin : -expectedMargin)
+      expect(getMarginX(stickyEl)).toBe(expectedMargin === 0 ? expectedMargin : -expectedMargin)
       expect(hasMarginAttr(stickyEl)).toBeFalse() // We do not have to keep css margin
       expect(hasPaddingAttr(stickyEl)).toBeFalse() // We do not have to keep css padding
 
       scrollBar.reset()
 
-      expect(getPaddingX(stickyEl)).toEqual(originalPadding)
-      expect(getPaddingX(stickyEl)).toEqual(originalPadding)
+      expect(getPaddingX(stickyEl)).toBe(originalPadding)
+      expect(getPaddingX(stickyEl)).toBe(originalPadding)
     })
 
     describe('Body Handling', () => {
@@ -232,8 +232,8 @@ describe('ScrollBar', () => {
         const scrollBarWidth = scrollBar.getWidth()
         scrollBar.hide()
 
-        expect(getPaddingX(document.body)).toEqual(scrollBarWidth, 'body does not have inline padding set')
-        expect(document.body.style.color).toEqual('red', 'body still has other inline styles set')
+        expect(getPaddingX(document.body)).toBe(scrollBarWidth)
+        expect(document.body.style.color).toBe('red')
 
         scrollBar.reset()
       })
@@ -253,7 +253,7 @@ describe('ScrollBar', () => {
         el.style.paddingRight = inlineStylePadding
 
         const originalPadding = getPaddingX(el)
-        expect(originalPadding).toEqual(parseInt(inlineStylePadding)) // Respect only the inline style as it has prevails this of css
+        expect(originalPadding).toBe(parseInt(inlineStylePadding)) // Respect only the inline style as it has prevails this of css
         const originalOverFlow = 'auto'
         el.style.overflow = originalOverFlow
         const scrollBar = new ScrollBarHelper()
@@ -263,18 +263,18 @@ describe('ScrollBar', () => {
 
         const currentPadding = getPaddingX(el)
 
-        expect(currentPadding).toEqual(scrollBarWidth + originalPadding)
-        expect(currentPadding).toEqual(scrollBarWidth + parseInt(inlineStylePadding))
-        expect(getPaddingAttr(el)).toEqual(inlineStylePadding)
-        expect(getOverFlow(el)).toEqual('hidden')
-        expect(getOverFlowAttr(el)).toEqual(originalOverFlow)
+        expect(currentPadding).toBe(scrollBarWidth + originalPadding)
+        expect(currentPadding).toBe(scrollBarWidth + parseInt(inlineStylePadding))
+        expect(getPaddingAttr(el)).toBe(inlineStylePadding)
+        expect(getOverFlow(el)).toBe('hidden')
+        expect(getOverFlowAttr(el)).toBe(originalOverFlow)
 
         scrollBar.reset()
 
         const currentPadding1 = getPaddingX(el)
-        expect(currentPadding1).toEqual(originalPadding)
+        expect(currentPadding1).toBe(originalPadding)
         expect(getPaddingAttr(el)).toBeNull()
-        expect(getOverFlow(el)).toEqual(originalOverFlow)
+        expect(getOverFlow(el)).toBe(originalOverFlow)
         expect(getOverFlowAttr(el)).toBeNull()
       })
 
@@ -298,18 +298,18 @@ describe('ScrollBar', () => {
 
         const currentPadding = getPaddingX(el)
 
-        expect(currentPadding).toEqual(scrollBarWidth + originalPadding)
-        expect(currentPadding).toEqual(scrollBarWidth + parseInt(styleSheetPadding))
+        expect(currentPadding).toBe(scrollBarWidth + originalPadding)
+        expect(currentPadding).toBe(scrollBarWidth + parseInt(styleSheetPadding))
         expect(getPaddingAttr(el)).toBeNull() // We do not have to keep css padding
-        expect(getOverFlow(el)).toEqual('hidden')
-        expect(getOverFlowAttr(el)).toEqual(originalOverFlow)
+        expect(getOverFlow(el)).toBe('hidden')
+        expect(getOverFlowAttr(el)).toBe(originalOverFlow)
 
         scrollBar.reset()
 
         const currentPadding1 = getPaddingX(el)
-        expect(currentPadding1).toEqual(originalPadding)
+        expect(currentPadding1).toBe(originalPadding)
         expect(getPaddingAttr(el)).toBeNull()
-        expect(getOverFlow(el)).toEqual(originalOverFlow)
+        expect(getOverFlow(el)).toBe(originalOverFlow)
         expect(getOverFlowAttr(el)).toBeNull()
       })
 
@@ -324,7 +324,7 @@ describe('ScrollBar', () => {
         scrollBar.hide()
         const currentPadding = getPaddingX(document.body)
 
-        expect(currentPadding).toEqual(originalPadding, 'body padding should not be adjusted')
+        expect(currentPadding).toBe(originalPadding)
         scrollBar.reset()
       })
 
@@ -344,7 +344,7 @@ describe('ScrollBar', () => {
 
         const currentPadding = getPaddingX(document.body)
 
-        expect(currentPadding).toEqual(originalPadding, 'body padding should not be adjusted')
+        expect(currentPadding).toBe(originalPadding)
 
         scrollBar.reset()
       })

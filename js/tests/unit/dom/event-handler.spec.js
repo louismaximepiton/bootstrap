@@ -163,7 +163,7 @@ describe('EventHandler', () => {
       EventHandler.trigger(div, 'bootstrap')
 
       setTimeout(() => {
-        expect(called).toEqual(1)
+        expect(called).toBe(1)
         done()
       }, 20)
     })
@@ -185,7 +185,7 @@ describe('EventHandler', () => {
       EventHandler.trigger(div, 'bootstrap')
 
       setTimeout(() => {
-        expect(called).toEqual(1)
+        expect(called).toBe(1)
         done()
       }, 20)
     })
@@ -217,7 +217,7 @@ describe('EventHandler', () => {
       EventHandler.trigger(div, 'foobar')
 
       setTimeout(() => {
-        expect(called).toEqual(1)
+        expect(called).toBe(1)
         done()
       }, 20)
     })
@@ -240,7 +240,7 @@ describe('EventHandler', () => {
       EventHandler.trigger(div, 'foobar')
 
       setTimeout(() => {
-        expect(called).toEqual(2)
+        expect(called).toBe(2)
         done()
       }, 20)
     })
@@ -265,7 +265,7 @@ describe('EventHandler', () => {
       EventHandler.trigger(div, 'foofoo.namespace')
 
       setTimeout(() => {
-        expect(called).toEqual(2)
+        expect(called).toBe(2)
         done()
       }, 20)
     })
@@ -291,8 +291,8 @@ describe('EventHandler', () => {
       EventHandler.trigger(div, 'foofoo.namespace')
 
       setTimeout(() => {
-        expect(calledCallback1).toEqual(1)
-        expect(calledCallback2).toEqual(1)
+        expect(calledCallback1).toBe(1)
+        expect(calledCallback2).toBe(1)
         done()
       }, 20)
     })
@@ -315,7 +315,7 @@ describe('EventHandler', () => {
       EventHandler.trigger(div, 'click')
 
       setTimeout(() => {
-        expect(called).toEqual(2)
+        expect(called).toBe(2)
         done()
       }, 20)
     })
@@ -339,8 +339,8 @@ describe('EventHandler', () => {
       EventHandler.trigger(div, 'click')
 
       setTimeout(() => {
-        expect(called1).toEqual(1)
-        expect(called2).toEqual(2)
+        expect(called1).toBe(1)
+        expect(called2).toBe(2)
         done()
       }, 20)
     })
@@ -385,31 +385,31 @@ describe('EventHandler', () => {
       EventHandler.trigger(subelement, 'click')
 
       // first listeners called
-      expect(i).toEqual(2)
+      expect(i).toBe(2)
 
       EventHandler.off(element, 'click', 'span', handler)
       EventHandler.trigger(subelement, 'click')
 
       // removed listener not called
-      expect(i).toEqual(2)
+      expect(i).toBe(2)
 
       EventHandler.trigger(anchor, 'click')
 
       // not removed listener called
-      expect(i).toEqual(3)
+      expect(i).toBe(3)
 
       EventHandler.on(element, 'click', 'span', handler)
       EventHandler.trigger(anchor, 'click')
       EventHandler.trigger(subelement, 'click')
 
       // listener re-registered
-      expect(i).toEqual(5)
+      expect(i).toBe(5)
 
       EventHandler.off(element, 'click', 'span')
       EventHandler.trigger(subelement, 'click')
 
       // listener removed again
-      expect(i).toEqual(5)
+      expect(i).toBe(5)
     })
   })
 })

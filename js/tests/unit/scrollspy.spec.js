@@ -14,7 +14,7 @@ describe('ScrollSpy', () => {
     const scrollHeight = Math.ceil(contentEl.scrollTop + Manipulator.position(target).top) + paddingTop
 
     function listener() {
-      expect(element.classList.contains('active')).toEqual(true)
+      expect(element.classList.contains('active')).toBeTrue()
       contentEl.removeEventListener('scroll', listener)
       expect(scrollSpy._process).toHaveBeenCalled()
       spy.calls.reset()
@@ -47,7 +47,7 @@ describe('ScrollSpy', () => {
 
   describe('DATA_KEY', () => {
     it('should return plugin data key', () => {
-      expect(ScrollSpy.DATA_KEY).toEqual('bs.scrollspy')
+      expect(ScrollSpy.DATA_KEY).toBe('bs.scrollspy')
     })
   })
 
@@ -82,7 +82,7 @@ describe('ScrollSpy', () => {
         target: '#navigation'
       })
 
-      expect(scrollSpy._targets.length).toEqual(2)
+      expect(scrollSpy._targets.length).toBe(2)
     })
 
     it('should only switch "active" class on current target', done => {
@@ -120,7 +120,7 @@ describe('ScrollSpy', () => {
       spyOn(scrollSpy, '_process').and.callThrough()
 
       scrollSpyEl.addEventListener('scroll', () => {
-        expect(rootEl.classList.contains('active')).toEqual(true)
+        expect(rootEl.classList.contains('active')).toBeTrue()
         expect(scrollSpy._process).toHaveBeenCalled()
         done()
       })
@@ -163,7 +163,7 @@ describe('ScrollSpy', () => {
       spyOn(scrollSpy, '_process').and.callThrough()
 
       scrollSpyEl.addEventListener('scroll', () => {
-        expect(rootEl.classList.contains('active')).toEqual(true)
+        expect(rootEl.classList.contains('active')).toBeTrue()
         expect(scrollSpy._process).toHaveBeenCalled()
         done()
       })
@@ -197,9 +197,9 @@ describe('ScrollSpy', () => {
       spyOn(scrollSpy, '_process').and.callThrough()
 
       contentEl.addEventListener('scroll', () => {
-        expect(fixtureEl.querySelector('#one-link').classList.contains('active')).toEqual(false)
-        expect(fixtureEl.querySelector('#two-link').classList.contains('active')).toEqual(true)
-        expect(fixtureEl.querySelector('#three-link').classList.contains('active')).toEqual(false)
+        expect(fixtureEl.querySelector('#one-link').classList.contains('active')).toBeFalse()
+        expect(fixtureEl.querySelector('#two-link').classList.contains('active')).toBeTrue()
+        expect(fixtureEl.querySelector('#three-link').classList.contains('active')).toBeFalse()
         expect(scrollSpy._process).toHaveBeenCalled()
         done()
       })
@@ -361,8 +361,8 @@ describe('ScrollSpy', () => {
         expect(spy).toHaveBeenCalled()
         spy.calls.reset()
         if (firstTime) {
-          expect(fixtureEl.querySelectorAll('.active').length).toEqual(1)
-          expect(active.getAttribute('id')).toEqual('two-link')
+          expect(fixtureEl.querySelectorAll('.active').length).toBe(1)
+          expect(active.getAttribute('id')).toBe('two-link')
           firstTime = false
           contentEl.scrollTop = 0
         } else {
@@ -409,13 +409,13 @@ describe('ScrollSpy', () => {
         expect(spy).toHaveBeenCalled()
         spy.calls.reset()
         if (firstTime) {
-          expect(fixtureEl.querySelectorAll('.active').length).toEqual(1)
-          expect(active.getAttribute('id')).toEqual('two-link')
+          expect(fixtureEl.querySelectorAll('.active').length).toBe(1)
+          expect(active.getAttribute('id')).toBe('two-link')
           firstTime = false
           contentEl.scrollTop = negativeHeight
         } else {
-          expect(fixtureEl.querySelectorAll('.active').length).toEqual(1)
-          expect(active.getAttribute('id')).toEqual('one-link')
+          expect(fixtureEl.querySelectorAll('.active').length).toBe(1)
+          expect(active.getAttribute('id')).toBe('one-link')
           done()
         }
       })
@@ -524,8 +524,8 @@ describe('ScrollSpy', () => {
         method: 'offset'
       })
 
-      expect(scrollSpy._offsets[1]).toEqual(Manipulator.offset(targetEl).top)
-      expect(scrollSpy._offsets[1]).not.toEqual(Manipulator.position(targetEl).top)
+      expect(scrollSpy._offsets[1]).toBe(Manipulator.offset(targetEl).top)
+      expect(scrollSpy._offsets[1]).not.toBe(Manipulator.position(targetEl).top)
     })
 
     it('should allow passed in option offset method: position', () => {
@@ -552,8 +552,8 @@ describe('ScrollSpy', () => {
         method: 'position'
       })
 
-      expect(scrollSpy._offsets[1]).not.toEqual(Manipulator.offset(targetEl).top)
-      expect(scrollSpy._offsets[1]).toEqual(Manipulator.position(targetEl).top)
+      expect(scrollSpy._offsets[1]).not.toBe(Manipulator.offset(targetEl).top)
+      expect(scrollSpy._offsets[1]).toBe(Manipulator.position(targetEl).top)
     })
   })
 
@@ -699,7 +699,7 @@ describe('ScrollSpy', () => {
       })
       expect(scrollspy).toBeInstanceOf(ScrollSpy)
 
-      expect(scrollspy._config.offset).toEqual(1)
+      expect(scrollspy._config.offset).toBe(1)
     })
 
     it('should return the instance when exists without given configuration', () => {
@@ -717,7 +717,7 @@ describe('ScrollSpy', () => {
       expect(scrollspy).toBeInstanceOf(ScrollSpy)
       expect(scrollspy2).toEqual(scrollspy)
 
-      expect(scrollspy2._config.offset).toEqual(1)
+      expect(scrollspy2._config.offset).toBe(1)
     })
   })
 

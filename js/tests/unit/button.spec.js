@@ -30,7 +30,7 @@ describe('Button', () => {
 
   describe('DATA_KEY', () => {
     it('should return plugin data key', () => {
-      expect(Button.DATA_KEY).toEqual('bs.button')
+      expect(Button.DATA_KEY).toBe('bs.button')
     })
   })
 
@@ -45,19 +45,19 @@ describe('Button', () => {
       const divTest = fixtureEl.querySelector('.test')
       const btnTestParent = fixtureEl.querySelector('.testParent')
 
-      expect(btn.classList.contains('active')).toEqual(false)
+      expect(btn.classList.contains('active')).toBeFalse()
 
       btn.click()
 
-      expect(btn.classList.contains('active')).toEqual(true)
+      expect(btn.classList.contains('active')).toBeTrue()
 
       btn.click()
 
-      expect(btn.classList.contains('active')).toEqual(false)
+      expect(btn.classList.contains('active')).toBeFalse()
 
       divTest.click()
 
-      expect(btnTestParent.classList.contains('active')).toEqual(true)
+      expect(btnTestParent.classList.contains('active')).toBeTrue()
     })
   })
 
@@ -68,13 +68,13 @@ describe('Button', () => {
       const btnEl = fixtureEl.querySelector('.btn')
       const button = new Button(btnEl)
 
-      expect(btnEl.getAttribute('aria-pressed')).toEqual('false')
-      expect(btnEl.classList.contains('active')).toEqual(false)
+      expect(btnEl.getAttribute('aria-pressed')).toBe('false')
+      expect(btnEl.classList.contains('active')).toBeFalse()
 
       button.toggle()
 
-      expect(btnEl.getAttribute('aria-pressed')).toEqual('true')
-      expect(btnEl.classList.contains('active')).toEqual(true)
+      expect(btnEl.getAttribute('aria-pressed')).toBe('true')
+      expect(btnEl.classList.contains('active')).toBeTrue()
     })
   })
 
@@ -121,7 +121,7 @@ describe('Button', () => {
       jQueryMock.fn.button.call(jQueryMock, 'toggle')
 
       expect(Button.getInstance(btnEl)).not.toBeNull()
-      expect(btnEl.classList.contains('active')).toEqual(true)
+      expect(btnEl.classList.contains('active')).toBeTrue()
     })
 
     it('should just create a button instance without calling toggle', () => {
@@ -135,7 +135,7 @@ describe('Button', () => {
       jQueryMock.fn.button.call(jQueryMock)
 
       expect(Button.getInstance(btnEl)).not.toBeNull()
-      expect(btnEl.classList.contains('active')).toEqual(false)
+      expect(btnEl.classList.contains('active')).toBeFalse()
     })
   })
 

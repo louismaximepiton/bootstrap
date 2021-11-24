@@ -51,8 +51,8 @@ describe('Tab', () => {
       const tab = new Tab(profileTriggerEl)
 
       profileTriggerEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toEqual(true)
-        expect(profileTriggerEl.getAttribute('aria-selected')).toEqual('true')
+        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toBeTrue()
+        expect(profileTriggerEl.getAttribute('aria-selected')).toBe('true')
         done()
       })
 
@@ -75,8 +75,8 @@ describe('Tab', () => {
       const tab = new Tab(profileTriggerEl)
 
       profileTriggerEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toEqual(true)
-        expect(profileTriggerEl.getAttribute('aria-selected')).toEqual('true')
+        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toBeTrue()
+        expect(profileTriggerEl.getAttribute('aria-selected')).toBe('true')
         done()
       })
 
@@ -99,7 +99,7 @@ describe('Tab', () => {
       const tab = new Tab(profileTriggerEl)
 
       profileTriggerEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toEqual(true)
+        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toBeTrue()
         done()
       })
 
@@ -119,7 +119,7 @@ describe('Tab', () => {
       const tab = new Tab(profileTriggerEl)
 
       profileTriggerEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toEqual(true)
+        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toBeTrue()
         done()
       })
 
@@ -139,7 +139,7 @@ describe('Tab', () => {
       const tab = new Tab(profileTriggerEl)
 
       profileTriggerEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toEqual(true)
+        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toBeTrue()
         done()
       })
 
@@ -212,13 +212,13 @@ describe('Tab', () => {
       const secondTab = new Tab(secondTabTrigger)
 
       secondTabTrigger.addEventListener('show.bs.tab', ev => {
-        expect(ev.relatedTarget.getAttribute('data-bs-target')).toEqual('#home')
+        expect(ev.relatedTarget.getAttribute('data-bs-target')).toBe('#home')
       })
 
       secondTabTrigger.addEventListener('shown.bs.tab', ev => {
-        expect(ev.relatedTarget.getAttribute('data-bs-target')).toEqual('#home')
-        expect(secondTabTrigger.getAttribute('aria-selected')).toEqual('true')
-        expect(fixtureEl.querySelector('button:not(.active)').getAttribute('aria-selected')).toEqual('false')
+        expect(ev.relatedTarget.getAttribute('data-bs-target')).toBe('#home')
+        expect(secondTabTrigger.getAttribute('aria-selected')).toBe('true')
+        expect(fixtureEl.querySelector('button:not(.active)').getAttribute('aria-selected')).toBe('false')
         done()
       })
 
@@ -244,12 +244,12 @@ describe('Tab', () => {
 
       triggerList[0].addEventListener('hide.bs.tab', ev => {
         hideCalled = true
-        expect(ev.relatedTarget.getAttribute('data-bs-target')).toEqual('#profile')
+        expect(ev.relatedTarget.getAttribute('data-bs-target')).toBe('#profile')
       })
 
       triggerList[0].addEventListener('hidden.bs.tab', ev => {
-        expect(hideCalled).toEqual(true)
-        expect(ev.relatedTarget.getAttribute('data-bs-target')).toEqual('#profile')
+        expect(hideCalled).toBeTrue()
+        expect(ev.relatedTarget.getAttribute('data-bs-target')).toBe('#profile')
         done()
       })
 
@@ -321,7 +321,7 @@ describe('Tab', () => {
       const secondNavTab = new Tab(secondNavEl)
 
       secondNavEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelectorAll('.nav-tab').length).toEqual(2)
+        expect(fixtureEl.querySelectorAll('.nav-tab').length).toBe(2)
         done()
       })
 
@@ -469,8 +469,8 @@ describe('Tab', () => {
       const secondTabTrigger = fixtureEl.querySelector('#triggerProfile')
 
       secondTabTrigger.addEventListener('shown.bs.tab', () => {
-        expect(secondTabTrigger.classList.contains('active')).toEqual(true)
-        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toEqual(true)
+        expect(secondTabTrigger.classList.contains('active')).toBeTrue()
+        expect(fixtureEl.querySelector('#profile').classList.contains('active')).toBeTrue()
         done()
       })
 
@@ -495,9 +495,9 @@ describe('Tab', () => {
       const firstLiLinkEl = fixtureEl.querySelector('li:first-child a')
 
       firstLiLinkEl.click()
-      expect(firstLiLinkEl.classList.contains('active')).toEqual(true)
-      expect(fixtureEl.querySelector('li:last-child a').classList.contains('active')).toEqual(false)
-      expect(fixtureEl.querySelector('li:last-child .dropdown-menu a:first-child').classList.contains('active')).toEqual(false)
+      expect(firstLiLinkEl.classList.contains('active')).toBeTrue()
+      expect(fixtureEl.querySelector('li:last-child a').classList.contains('active')).toBeFalse()
+      expect(fixtureEl.querySelector('li:last-child .dropdown-menu a:first-child').classList.contains('active')).toBeFalse()
     })
 
     it('selecting a dropdown tab does not activate another', () => {
@@ -529,10 +529,10 @@ describe('Tab', () => {
       const firstDropItem = fixtureEl.querySelector('#nav1 .dropdown-item')
 
       firstDropItem.click()
-      expect(firstDropItem.classList.contains('active')).toEqual(true)
-      expect(fixtureEl.querySelector('#nav1 .dropdown-toggle').classList.contains('active')).toEqual(true)
-      expect(fixtureEl.querySelector('#nav2 .dropdown-toggle').classList.contains('active')).toEqual(false)
-      expect(fixtureEl.querySelector('#nav2 .dropdown-item').classList.contains('active')).toEqual(false)
+      expect(firstDropItem.classList.contains('active')).toBeTrue()
+      expect(fixtureEl.querySelector('#nav1 .dropdown-toggle').classList.contains('active')).toBeTrue()
+      expect(fixtureEl.querySelector('#nav2 .dropdown-toggle').classList.contains('active')).toBeFalse()
+      expect(fixtureEl.querySelector('#nav2 .dropdown-item').classList.contains('active')).toBeFalse()
     })
 
     it('should support li > .dropdown-item', () => {
@@ -553,8 +553,8 @@ describe('Tab', () => {
       const firstDropItem = fixtureEl.querySelector('.dropdown-item')
 
       firstDropItem.click()
-      expect(firstDropItem.classList.contains('active')).toEqual(true)
-      expect(fixtureEl.querySelector('.nav-link').classList.contains('active')).toEqual(false)
+      expect(firstDropItem.classList.contains('active')).toBeTrue()
+      expect(fixtureEl.querySelector('.nav-link').classList.contains('active')).toBeFalse()
     })
 
     it('should handle nested tabs', done => {
@@ -585,12 +585,12 @@ describe('Tab', () => {
       const xTab1El = fixtureEl.querySelector('#x-tab1')
 
       tabNested2El.addEventListener('shown.bs.tab', () => {
-        expect(xTab1El.classList.contains('active')).toEqual(true)
+        expect(xTab1El.classList.contains('active')).toBeTrue()
         done()
       })
 
       tab1El.addEventListener('shown.bs.tab', () => {
-        expect(xTab1El.classList.contains('active')).toEqual(true)
+        expect(xTab1El.classList.contains('active')).toBeTrue()
         tabNested2El.click()
       })
 
@@ -615,15 +615,15 @@ describe('Tab', () => {
       const tabHomeEl = fixtureEl.querySelector('#home')
 
       triggerTabProfileEl.addEventListener('shown.bs.tab', () => {
-        expect(tabProfileEl.classList.contains('fade')).toEqual(true)
-        expect(tabProfileEl.classList.contains('show')).toEqual(true)
+        expect(tabProfileEl.classList.contains('fade')).toBeTrue()
+        expect(tabProfileEl.classList.contains('show')).toBeTrue()
 
         triggerTabHomeEl.addEventListener('shown.bs.tab', () => {
-          expect(tabProfileEl.classList.contains('fade')).toEqual(true)
-          expect(tabProfileEl.classList.contains('show')).toEqual(false)
+          expect(tabProfileEl.classList.contains('fade')).toBeTrue()
+          expect(tabProfileEl.classList.contains('show')).toBeFalse()
 
-          expect(tabHomeEl.classList.contains('fade')).toEqual(true)
-          expect(tabHomeEl.classList.contains('show')).toEqual(true)
+          expect(tabHomeEl.classList.contains('fade')).toBeTrue()
+          expect(tabHomeEl.classList.contains('show')).toBeTrue()
 
           done()
         })
@@ -653,7 +653,7 @@ describe('Tab', () => {
       const secondNavEl = fixtureEl.querySelector('#secondNav')
 
       secondNavEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelectorAll('.show').length).toEqual(0)
+        expect(fixtureEl.querySelectorAll('.show').length).toBe(0)
         done()
       })
 
@@ -679,7 +679,7 @@ describe('Tab', () => {
       const secondNavEl = fixtureEl.querySelector('#secondNav')
 
       secondNavEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelectorAll('.show').length).toEqual(1)
+        expect(fixtureEl.querySelectorAll('.show').length).toBe(1)
         done()
       })
 
@@ -698,7 +698,7 @@ describe('Tab', () => {
       spyOn(Event.prototype, 'preventDefault').and.callThrough()
 
       tabEl.addEventListener('shown.bs.tab', () => {
-        expect(tabEl.classList.contains('active')).toEqual(true)
+        expect(tabEl.classList.contains('active')).toBeTrue()
         expect(Event.prototype.preventDefault).toHaveBeenCalled()
         done()
       })

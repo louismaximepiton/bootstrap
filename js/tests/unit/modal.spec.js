@@ -38,7 +38,7 @@ describe('Modal', () => {
 
   describe('DATA_KEY', () => {
     it('should return plugin data key', () => {
-      expect(Modal.DATA_KEY).toEqual('bs.modal')
+      expect(Modal.DATA_KEY).toBe('bs.modal')
     })
   })
 
@@ -92,10 +92,10 @@ describe('Modal', () => {
       })
 
       modalEl.addEventListener('shown.bs.modal', () => {
-        expect(modalEl.getAttribute('aria-modal')).toEqual('true')
-        expect(modalEl.getAttribute('role')).toEqual('dialog')
+        expect(modalEl.getAttribute('aria-modal')).toBe('true')
+        expect(modalEl.getAttribute('role')).toBe('dialog')
         expect(modalEl.getAttribute('aria-hidden')).toBeNull()
-        expect(modalEl.style.display).toEqual('block')
+        expect(modalEl.style.display).toBe('block')
         expect(document.querySelector('.modal-backdrop')).not.toBeNull()
         done()
       })
@@ -116,10 +116,10 @@ describe('Modal', () => {
       })
 
       modalEl.addEventListener('shown.bs.modal', () => {
-        expect(modalEl.getAttribute('aria-modal')).toEqual('true')
-        expect(modalEl.getAttribute('role')).toEqual('dialog')
+        expect(modalEl.getAttribute('aria-modal')).toBe('true')
+        expect(modalEl.getAttribute('role')).toBe('dialog')
         expect(modalEl.getAttribute('aria-hidden')).toBeNull()
-        expect(modalEl.style.display).toEqual('block')
+        expect(modalEl.style.display).toBe('block')
         expect(document.querySelector('.modal-backdrop')).toBeNull()
         done()
       })
@@ -234,12 +234,12 @@ describe('Modal', () => {
 
       modalEl.addEventListener('show.bs.modal', () => {
         setTimeout(() => {
-          expect(modal._isTransitioning).toEqual(true)
+          expect(modal._isTransitioning).toBeTrue()
         })
       })
 
       modalEl.addEventListener('shown.bs.modal', () => {
-        expect(modal._isTransitioning).toEqual(false)
+        expect(modal._isTransitioning).toBeFalse()
         done()
       })
 
@@ -314,7 +314,7 @@ describe('Modal', () => {
       const modal = new Modal(modalEl)
 
       modalEl.addEventListener('shown.bs.modal', () => {
-        expect(modalEl.scrollTop).toEqual(0)
+        expect(modalEl.scrollTop).toBe(0)
         done()
       })
 
@@ -335,7 +335,7 @@ describe('Modal', () => {
       const modal = new Modal(modalEl)
 
       modalEl.addEventListener('shown.bs.modal', () => {
-        expect(modalBody.scrollTop).toEqual(0)
+        expect(modalBody.scrollTop).toBe(0)
         done()
       })
 
@@ -474,7 +474,7 @@ describe('Modal', () => {
 
       const shownCallback = () => {
         setTimeout(() => {
-          expect(modal._isShown).toEqual(true)
+          expect(modal._isShown).toBeTrue()
           done()
         }, 10)
       }
@@ -501,7 +501,7 @@ describe('Modal', () => {
 
       const shownCallback = () => {
         setTimeout(() => {
-          expect(modal._isShown).toEqual(true)
+          expect(modal._isShown).toBeTrue()
           done()
         }, 10)
       }
@@ -529,7 +529,7 @@ describe('Modal', () => {
 
       const shownCallback = () => {
         setTimeout(() => {
-          expect(modal._isShown).toEqual(false)
+          expect(modal._isShown).toBeFalse()
           done()
         }, 10)
       }
@@ -555,7 +555,7 @@ describe('Modal', () => {
 
       const shownCallback = () => {
         setTimeout(() => {
-          expect(modal._isShown).toEqual(true)
+          expect(modal._isShown).toBeTrue()
           done()
         }, 10)
       }
@@ -586,7 +586,7 @@ describe('Modal', () => {
       modalEl.addEventListener('shown.bs.modal', () => {
         modalEl.click()
         setTimeout(() => {
-          expect(modalEl.clientHeight).toEqual(modalEl.scrollHeight)
+          expect(modalEl.clientHeight).toBe(modalEl.scrollHeight)
           done()
         }, 20)
       })
@@ -653,8 +653,8 @@ describe('Modal', () => {
       modalEl.addEventListener('hidden.bs.modal', () => {
         expect(modalEl.getAttribute('aria-modal')).toBeNull()
         expect(modalEl.getAttribute('role')).toBeNull()
-        expect(modalEl.getAttribute('aria-hidden')).toEqual('true')
-        expect(modalEl.style.display).toEqual('none')
+        expect(modalEl.getAttribute('aria-hidden')).toBe('true')
+        expect(modalEl.style.display).toBe('none')
         expect(backdropSpy).toHaveBeenCalled()
         done()
       })
@@ -675,8 +675,8 @@ describe('Modal', () => {
       modalEl.addEventListener('hidden.bs.modal', () => {
         expect(modalEl.getAttribute('aria-modal')).toBeNull()
         expect(modalEl.getAttribute('role')).toBeNull()
-        expect(modalEl.getAttribute('aria-hidden')).toEqual('true')
-        expect(modalEl.style.display).toEqual('none')
+        expect(modalEl.getAttribute('aria-hidden')).toBe('true')
+        expect(modalEl.style.display).toBe('none')
         expect(document.querySelector('.modal-backdrop')).toBeNull()
         done()
       })
@@ -719,7 +719,7 @@ describe('Modal', () => {
 
       const hideCallback = () => {
         setTimeout(() => {
-          expect(modal._isShown).toEqual(true)
+          expect(modal._isShown).toBeTrue()
           done()
         }, 10)
       }
@@ -803,10 +803,10 @@ describe('Modal', () => {
       const trigger = fixtureEl.querySelector('[data-bs-toggle="modal"]')
 
       modalEl.addEventListener('shown.bs.modal', () => {
-        expect(modalEl.getAttribute('aria-modal')).toEqual('true')
-        expect(modalEl.getAttribute('role')).toEqual('dialog')
+        expect(modalEl.getAttribute('aria-modal')).toBe('true')
+        expect(modalEl.getAttribute('role')).toBe('dialog')
         expect(modalEl.getAttribute('aria-hidden')).toBeNull()
-        expect(modalEl.style.display).toEqual('block')
+        expect(modalEl.style.display).toBe('block')
         expect(document.querySelector('.modal-backdrop')).not.toBeNull()
         setTimeout(() => trigger.click(), 10)
       })
@@ -814,8 +814,8 @@ describe('Modal', () => {
       modalEl.addEventListener('hidden.bs.modal', () => {
         expect(modalEl.getAttribute('aria-modal')).toBeNull()
         expect(modalEl.getAttribute('role')).toBeNull()
-        expect(modalEl.getAttribute('aria-hidden')).toEqual('true')
-        expect(modalEl.style.display).toEqual('none')
+        expect(modalEl.getAttribute('aria-hidden')).toBe('true')
+        expect(modalEl.style.display).toBe('none')
         expect(document.querySelector('.modal-backdrop')).toBeNull()
         done()
       })
@@ -855,10 +855,10 @@ describe('Modal', () => {
       spyOn(Event.prototype, 'preventDefault').and.callThrough()
 
       modalEl.addEventListener('shown.bs.modal', () => {
-        expect(modalEl.getAttribute('aria-modal')).toEqual('true')
-        expect(modalEl.getAttribute('role')).toEqual('dialog')
+        expect(modalEl.getAttribute('aria-modal')).toBe('true')
+        expect(modalEl.getAttribute('role')).toBe('dialog')
         expect(modalEl.getAttribute('aria-hidden')).toBeNull()
-        expect(modalEl.style.display).toEqual('block')
+        expect(modalEl.style.display).toBe('block')
         expect(document.querySelector('.modal-backdrop')).not.toBeNull()
         expect(Event.prototype.preventDefault).toHaveBeenCalled()
         done()
@@ -1061,7 +1061,7 @@ describe('Modal', () => {
 
       const modal = Modal.getInstance(div)
       expect(modal).not.toBeNull()
-      expect(modal._config.keyboard).toBe(false)
+      expect(modal._config.keyboard).toBeFalse()
     })
 
     it('should not re create a modal', () => {
@@ -1176,7 +1176,7 @@ describe('Modal', () => {
       })
       expect(modal).toBeInstanceOf(Modal)
 
-      expect(modal._config.backdrop).toEqual(true)
+      expect(modal._config.backdrop).toBeTrue()
     })
 
     it('should return the instance when exists without given configuration', () => {
@@ -1194,7 +1194,7 @@ describe('Modal', () => {
       expect(modal).toBeInstanceOf(Modal)
       expect(modal2).toEqual(modal)
 
-      expect(modal2._config.backdrop).toEqual(true)
+      expect(modal2._config.backdrop).toBeTrue()
     })
   })
 })

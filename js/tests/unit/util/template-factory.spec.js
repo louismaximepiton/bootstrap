@@ -263,15 +263,15 @@ describe('TemplateFactory', () => {
       })
 
       const html = selector => factory.toHtml().querySelector(selector).textContent
-      expect(html('.foo')).toEqual('bar')
-      expect(html('.foo2')).toEqual('bar2')
+      expect(html('.foo')).toBe('bar')
+      expect(html('.foo2')).toBe('bar2')
       factory.changeContent({
         '.foo': 'test',
         '.foo2': 'test2'
       })
 
-      expect(html('.foo')).toEqual('test')
-      expect(html('.foo2')).toEqual('test2')
+      expect(html('.foo')).toBe('test')
+      expect(html('.foo2')).toBe('test2')
     })
 
     it('should change only the given, content', () => {
@@ -291,15 +291,15 @@ describe('TemplateFactory', () => {
       })
 
       const html = selector => factory.toHtml().querySelector(selector).textContent
-      expect(html('.foo')).toEqual('bar')
-      expect(html('.foo2')).toEqual('bar2')
+      expect(html('.foo')).toBe('bar')
+      expect(html('.foo2')).toBe('bar2')
       factory.changeContent({
         '.foo': 'test',
         '.wrong': 'wrong'
       })
 
-      expect(html('.foo')).toEqual('test')
-      expect(html('.foo2')).toEqual('bar2')
+      expect(html('.foo')).toBe('test')
+      expect(html('.foo2')).toBe('bar2')
     })
   })
 })

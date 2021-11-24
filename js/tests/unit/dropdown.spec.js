@@ -34,7 +34,7 @@ describe('Dropdown', () => {
 
   describe('DATA_KEY', () => {
     it('should return plugin data key', () => {
-      expect(Dropdown.DATA_KEY).toEqual('bs.dropdown')
+      expect(Dropdown.DATA_KEY).toBe('bs.dropdown')
     })
   })
 
@@ -84,7 +84,7 @@ describe('Dropdown', () => {
       })
       const offset = dropdown._getOffset()
 
-      expect(typeof offset).toEqual('function')
+      expect(typeof offset).toBe('function')
 
       dropdown.show()
     })
@@ -124,7 +124,7 @@ describe('Dropdown', () => {
 
       const popperConfig = dropdown._getPopperConfig()
 
-      expect(popperConfig.placement).toEqual('left')
+      expect(popperConfig.placement).toBe('left')
     })
 
     it('should allow to pass config to Popper with `popperConfig` as a function', () => {
@@ -146,7 +146,7 @@ describe('Dropdown', () => {
       const popperConfig = dropdown._getPopperConfig()
 
       expect(getPopperConfig).toHaveBeenCalled()
-      expect(popperConfig.placement).toEqual('left')
+      expect(popperConfig.placement).toBe('left')
     })
   })
 
@@ -165,8 +165,8 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         done()
       })
 
@@ -196,7 +196,7 @@ describe('Dropdown', () => {
       const dropdown1 = new Dropdown(btnDropdown1)
 
       firstDropdownEl.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown1.classList.contains('show')).toEqual(true)
+        expect(btnDropdown1.classList.contains('show')).toBeTrue()
         spyOn(dropdown1._popper, 'destroy')
         btnDropdown2.click()
       })
@@ -228,16 +228,16 @@ describe('Dropdown', () => {
       spyOn(EventHandler, 'off')
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         expect(EventHandler.on).toHaveBeenCalledWith(jasmine.any(Object), 'mouseover', noop)
 
         dropdown.toggle()
       })
 
       btnDropdown.addEventListener('hidden.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(false)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('false')
+        expect(btnDropdown.classList.contains('show')).toBeFalse()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('false')
         expect(EventHandler.off).toHaveBeenCalledWith(jasmine.any(Object), 'mouseover', noop)
 
         document.documentElement.ontouchstart = defaultValueOnTouchStart
@@ -261,8 +261,8 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         done()
       })
 
@@ -284,8 +284,8 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       dropupEl.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         done()
       })
 
@@ -307,8 +307,8 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       dropupEl.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         done()
       })
 
@@ -330,8 +330,8 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       dropendEl.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         done()
       })
 
@@ -353,8 +353,8 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       dropstartEl.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         done()
       })
 
@@ -377,8 +377,8 @@ describe('Dropdown', () => {
       })
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         done()
       })
 
@@ -401,8 +401,8 @@ describe('Dropdown', () => {
       })
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         done()
       })
 
@@ -425,8 +425,8 @@ describe('Dropdown', () => {
       })
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
         done()
       })
 
@@ -474,8 +474,8 @@ describe('Dropdown', () => {
         popperConfig: {
           onFirstUpdate() {
             expect(virtualElement.getBoundingClientRect).toHaveBeenCalled()
-            expect(btnDropdown.classList.contains('show')).toEqual(true)
-            expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+            expect(btnDropdown.classList.contains('show')).toBeTrue()
+            expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
             done()
           }
         }
@@ -606,7 +606,7 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
         done()
       })
 
@@ -734,8 +734,8 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       btnDropdown.addEventListener('hidden.bs.dropdown', () => {
-        expect(dropdownMenu.classList.contains('show')).toEqual(false)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('false')
+        expect(dropdownMenu.classList.contains('show')).toBeFalse()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('false')
         done()
       })
 
@@ -789,7 +789,7 @@ describe('Dropdown', () => {
       dropdown.hide()
 
       setTimeout(() => {
-        expect(dropdownMenu.classList.contains('show')).toEqual(true)
+        expect(dropdownMenu.classList.contains('show')).toBeTrue()
         done()
       }, 10)
     })
@@ -815,7 +815,7 @@ describe('Dropdown', () => {
       dropdown.hide()
 
       setTimeout(() => {
-        expect(dropdownMenu.classList.contains('show')).toEqual(true)
+        expect(dropdownMenu.classList.contains('show')).toBeTrue()
         done()
       }, 10)
     })
@@ -870,7 +870,7 @@ describe('Dropdown', () => {
       dropdown.hide()
 
       setTimeout(() => {
-        expect(dropdownMenu.classList.contains('show')).toEqual(true)
+        expect(dropdownMenu.classList.contains('show')).toBeTrue()
         done()
       })
     })
@@ -897,8 +897,8 @@ describe('Dropdown', () => {
       })
 
       btnDropdown.addEventListener('hidden.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(false)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('false')
+        expect(btnDropdown.classList.contains('show')).toBeFalse()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('false')
         expect(EventHandler.off).toHaveBeenCalled()
 
         document.documentElement.ontouchstart = defaultValueOnTouchStart
@@ -1032,9 +1032,9 @@ describe('Dropdown', () => {
       })
 
       btnDropdown.addEventListener('shown.bs.dropdown', event => setTimeout(() => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
-        expect(showEventTriggered).toEqual(true)
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
+        expect(showEventTriggered).toBeTrue()
         expect(event.relatedTarget).toEqual(btnDropdown)
         document.body.click()
       }))
@@ -1044,9 +1044,9 @@ describe('Dropdown', () => {
       })
 
       btnDropdown.addEventListener('hidden.bs.dropdown', event => {
-        expect(btnDropdown.classList.contains('show')).toEqual(false)
-        expect(btnDropdown.getAttribute('aria-expanded')).toEqual('false')
-        expect(hideEventTriggered).toEqual(true)
+        expect(btnDropdown.classList.contains('show')).toBeFalse()
+        expect(btnDropdown.getAttribute('aria-expanded')).toBe('false')
+        expect(hideEventTriggered).toBeTrue()
         expect(event.relatedTarget).toEqual(btnDropdown)
         done()
       })
@@ -1137,7 +1137,7 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(dropdownMenu.getAttribute('data-bs-popper')).toEqual('none')
+        expect(dropdownMenu.getAttribute('data-bs-popper')).toBe('none')
         dropdown.hide()
       })
 
@@ -1186,7 +1186,7 @@ describe('Dropdown', () => {
       const dropdown = new Dropdown(btnDropdown)
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(dropdownMenu.getAttribute('data-bs-popper')).toEqual('static')
+        expect(dropdownMenu.getAttribute('data-bs-popper')).toBe('static')
         dropdown.hide()
       })
 
@@ -1211,7 +1211,7 @@ describe('Dropdown', () => {
       const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
 
       btnDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(true)
+        expect(btnDropdown.classList.contains('show')).toBeTrue()
 
         const keyup = createEvent('keyup')
 
@@ -1220,7 +1220,7 @@ describe('Dropdown', () => {
       })
 
       btnDropdown.addEventListener('hidden.bs.dropdown', () => {
-        expect(btnDropdown.classList.contains('show')).toEqual(false)
+        expect(btnDropdown.classList.contains('show')).toBeFalse()
         done()
       })
 
@@ -1248,29 +1248,29 @@ describe('Dropdown', () => {
 
       const triggerDropdownList = fixtureEl.querySelectorAll('[data-bs-toggle="dropdown"]')
 
-      expect(triggerDropdownList.length).toEqual(2)
+      expect(triggerDropdownList.length).toBe(2)
 
       const [triggerDropdownFirst, triggerDropdownLast] = triggerDropdownList
 
       triggerDropdownFirst.addEventListener('shown.bs.dropdown', () => {
-        expect(triggerDropdownFirst.classList.contains('show')).toEqual(true)
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(1)
+        expect(triggerDropdownFirst.classList.contains('show')).toBeTrue()
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(1)
         document.body.click()
       })
 
       triggerDropdownFirst.addEventListener('hidden.bs.dropdown', () => {
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(0)
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(0)
         triggerDropdownLast.click()
       })
 
       triggerDropdownLast.addEventListener('shown.bs.dropdown', () => {
-        expect(triggerDropdownLast.classList.contains('show')).toEqual(true)
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(1)
+        expect(triggerDropdownLast.classList.contains('show')).toBeTrue()
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(1)
         document.body.click()
       })
 
       triggerDropdownLast.addEventListener('hidden.bs.dropdown', () => {
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(0)
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(0)
         done()
       })
 
@@ -1296,13 +1296,13 @@ describe('Dropdown', () => {
 
       const triggerDropdownList = fixtureEl.querySelectorAll('[data-bs-toggle="dropdown"]')
 
-      expect(triggerDropdownList.length).toEqual(2)
+      expect(triggerDropdownList.length).toBe(2)
 
       const [triggerDropdownFirst, triggerDropdownLast] = triggerDropdownList
 
       triggerDropdownFirst.addEventListener('shown.bs.dropdown', () => {
-        expect(triggerDropdownFirst.classList.contains('show')).toEqual(true, '"show" class added on click')
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(1, 'only one dropdown is shown')
+        expect(triggerDropdownFirst.classList.contains('show')).toBeTrue()
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(1, 'only one dropdown is shown')
 
         const keyup = createEvent('keyup')
         keyup.key = 'Tab'
@@ -1311,13 +1311,13 @@ describe('Dropdown', () => {
       })
 
       triggerDropdownFirst.addEventListener('hidden.bs.dropdown', () => {
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(0, '"show" class removed')
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(0, '"show" class removed')
         triggerDropdownLast.click()
       })
 
       triggerDropdownLast.addEventListener('shown.bs.dropdown', () => {
-        expect(triggerDropdownLast.classList.contains('show')).toEqual(true, '"show" class added on click')
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(1, 'only one dropdown is shown')
+        expect(triggerDropdownLast.classList.contains('show')).toBeTrue()
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(1, 'only one dropdown is shown')
 
         const keyup = createEvent('keyup')
         keyup.key = 'Tab'
@@ -1326,7 +1326,7 @@ describe('Dropdown', () => {
       })
 
       triggerDropdownLast.addEventListener('hidden.bs.dropdown', () => {
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(0, '"show" class removed')
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(0, '"show" class removed')
         done()
       })
 
@@ -1456,8 +1456,8 @@ describe('Dropdown', () => {
         triggerDropdown.dispatchEvent(keydown)
         triggerDropdown.dispatchEvent(keydown)
 
-        expect(document.activeElement.classList.contains('disabled')).toEqual(false, '.disabled not focused')
-        expect(document.activeElement.hasAttribute('disabled')).toEqual(false, ':disabled not focused')
+        expect(document.activeElement.classList.contains('disabled')).toBeFalse()
+        expect(document.activeElement.hasAttribute('disabled')).toBeFalse()
         done()
       })
 
@@ -1490,9 +1490,9 @@ describe('Dropdown', () => {
 
         triggerDropdown.dispatchEvent(keydown)
 
-        expect(document.activeElement.classList.contains('d-none')).toEqual(false, '.d-none not focused')
-        expect(document.activeElement.style.display).not.toBe('none', '"display: none" not focused')
-        expect(document.activeElement.style.visibility).not.toBe('hidden', '"visibility: hidden" not focused')
+        expect(document.activeElement.classList.contains('d-none')).toBeFalse()
+        expect(document.activeElement.style.display).not.toBe('none')
+        expect(document.activeElement.style.visibility).not.toBe('hidden')
 
         done()
       })
@@ -1603,12 +1603,12 @@ describe('Dropdown', () => {
       const input = fixtureEl.querySelector('input')
 
       input.addEventListener('click', () => {
-        expect(triggerDropdown.classList.contains('show')).toEqual(true, 'dropdown menu is shown')
+        expect(triggerDropdown.classList.contains('show')).toBeTrue()
         done()
       })
 
       triggerDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(triggerDropdown.classList.contains('show')).toEqual(true, 'dropdown menu is shown')
+        expect(triggerDropdown.classList.contains('show')).toBeTrue()
         input.dispatchEvent(createEvent('click'))
       })
 
@@ -1629,12 +1629,12 @@ describe('Dropdown', () => {
       const textarea = fixtureEl.querySelector('textarea')
 
       textarea.addEventListener('click', () => {
-        expect(triggerDropdown.classList.contains('show')).toEqual(true, 'dropdown menu is shown')
+        expect(triggerDropdown.classList.contains('show')).toBeTrue()
         done()
       })
 
       triggerDropdown.addEventListener('shown.bs.dropdown', () => {
-        expect(triggerDropdown.classList.contains('show')).toEqual(true, 'dropdown menu is shown')
+        expect(triggerDropdown.classList.contains('show')).toBeTrue()
         textarea.dispatchEvent(createEvent('click'))
       })
 
@@ -1734,7 +1734,7 @@ describe('Dropdown', () => {
         input.focus()
         input.dispatchEvent(keydownEscape)
 
-        expect(triggerDropdown.classList.contains('show')).toEqual(false, 'dropdown menu is not shown')
+        expect(triggerDropdown.classList.contains('show')).toBeFalse()
         done()
       })
 
@@ -1771,7 +1771,7 @@ describe('Dropdown', () => {
 
       setTimeout(() => {
         expect(dropdown.toggle).not.toHaveBeenCalled()
-        expect(triggerDropdown.classList.contains('show')).toEqual(false)
+        expect(triggerDropdown.classList.contains('show')).toBeFalse()
         done()
       }, 20)
     })
@@ -1823,7 +1823,7 @@ describe('Dropdown', () => {
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
 
       const expectDropdownToBeOpened = () => setTimeout(() => {
-        expect(dropdownToggle.classList.contains('show')).toEqual(true)
+        expect(dropdownToggle.classList.contains('show')).toBeTrue()
         dropdownMenu.click()
       }, 150)
 
@@ -1833,7 +1833,7 @@ describe('Dropdown', () => {
       })
 
       dropdownToggle.addEventListener('hidden.bs.dropdown', () => setTimeout(() => {
-        expect(dropdownToggle.classList.contains('show')).toEqual(false)
+        expect(dropdownToggle.classList.contains('show')).toBeFalse()
         done()
       }))
 
@@ -1854,7 +1854,7 @@ describe('Dropdown', () => {
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
 
       const expectDropdownToBeOpened = () => setTimeout(() => {
-        expect(dropdownToggle.classList.contains('show')).toEqual(true)
+        expect(dropdownToggle.classList.contains('show')).toBeTrue()
         document.documentElement.click()
       }, 150)
 
@@ -1864,7 +1864,7 @@ describe('Dropdown', () => {
       })
 
       dropdownToggle.addEventListener('hidden.bs.dropdown', () => {
-        expect(dropdownToggle.classList.contains('show')).toEqual(false)
+        expect(dropdownToggle.classList.contains('show')).toBeFalse()
         done()
       })
 
@@ -1885,7 +1885,7 @@ describe('Dropdown', () => {
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
 
       const expectDropdownToBeOpened = (shouldTriggerClick = true) => setTimeout(() => {
-        expect(dropdownToggle.classList.contains('show')).toEqual(true)
+        expect(dropdownToggle.classList.contains('show')).toBeTrue()
         if (shouldTriggerClick) {
           document.documentElement.click()
         } else {
@@ -1999,7 +1999,7 @@ describe('Dropdown', () => {
       })
       expect(dropdown).toBeInstanceOf(Dropdown)
 
-      expect(dropdown._config.display).toEqual('dynamic')
+      expect(dropdown._config.display).toBe('dynamic')
     })
 
     it('should return the instance when exists without given configuration', () => {
@@ -2017,7 +2017,7 @@ describe('Dropdown', () => {
       expect(dropdown).toBeInstanceOf(Dropdown)
       expect(dropdown2).toEqual(dropdown)
 
-      expect(dropdown2._config.display).toEqual('dynamic')
+      expect(dropdown2._config.display).toBe('dynamic')
     })
   })
 
@@ -2043,8 +2043,8 @@ describe('Dropdown', () => {
     keyup.key = 'ArrowUp'
 
     const handleArrowDown = () => {
-      expect(triggerDropdown.classList.contains('show')).toEqual(true)
-      expect(triggerDropdown.getAttribute('aria-expanded')).toEqual('true')
+      expect(triggerDropdown.classList.contains('show')).toBeTrue()
+      expect(triggerDropdown.getAttribute('aria-expanded')).toBe('true')
       setTimeout(() => {
         dropdown.hide()
         keydown.key = 'ArrowUp'
@@ -2053,8 +2053,8 @@ describe('Dropdown', () => {
     }
 
     const handleArrowUp = () => {
-      expect(triggerDropdown.classList.contains('show')).toEqual(true)
-      expect(triggerDropdown.getAttribute('aria-expanded')).toEqual('true')
+      expect(triggerDropdown.classList.contains('show')).toBeTrue()
+      expect(triggerDropdown.getAttribute('aria-expanded')).toBe('true')
       done()
     }
 
@@ -2108,8 +2108,8 @@ describe('Dropdown', () => {
     const childElement = fixtureEl.querySelector('#childElement')
 
     btnDropdown.addEventListener('shown.bs.dropdown', () => setTimeout(() => {
-      expect(btnDropdown.classList.contains('show')).toEqual(true)
-      expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+      expect(btnDropdown.classList.contains('show')).toBeTrue()
+      expect(btnDropdown.getAttribute('aria-expanded')).toBe('true')
       done()
     }))
 

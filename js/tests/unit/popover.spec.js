@@ -38,7 +38,7 @@ describe('Popover', () => {
 
   describe('DATA_KEY', () => {
     it('should return plugin data key', () => {
-      expect(Popover.DATA_KEY).toEqual('bs.popover')
+      expect(Popover.DATA_KEY).toBe('bs.popover')
     })
   })
 
@@ -50,7 +50,7 @@ describe('Popover', () => {
 
   describe('EVENT_KEY', () => {
     it('should return plugin event key', () => {
-      expect(Popover.EVENT_KEY).toEqual('.bs.popover')
+      expect(Popover.EVENT_KEY).toBe('.bs.popover')
     })
   })
 
@@ -88,8 +88,8 @@ describe('Popover', () => {
         const popoverDisplayed = document.querySelector('.popover')
 
         expect(popoverDisplayed).not.toBeNull()
-        expect(popoverDisplayed.querySelector('.popover-header').textContent).toEqual('Bootstrap')
-        expect(popoverDisplayed.querySelector('.popover-body').textContent).toEqual('loves writing tests （╯°□°）╯︵ ┻━┻')
+        expect(popoverDisplayed.querySelector('.popover-header').textContent).toBe('Bootstrap')
+        expect(popoverDisplayed.querySelector('.popover-body').textContent).toBe('loves writing tests （╯°□°）╯︵ ┻━┻')
         done()
       })
 
@@ -108,7 +108,7 @@ describe('Popover', () => {
         const popoverDisplayed = document.querySelector('.popover')
 
         expect(popoverDisplayed).not.toBeNull()
-        expect(popoverDisplayed.querySelector('.popover-body').textContent).toEqual('Popover content')
+        expect(popoverDisplayed.querySelector('.popover-body').textContent).toBe('Popover content')
         done()
       })
 
@@ -128,7 +128,7 @@ describe('Popover', () => {
 
         expect(popoverDisplayed).not.toBeNull()
         expect(popoverDisplayed.querySelector('.popover-header')).toBeNull()
-        expect(popoverDisplayed.querySelector('.popover-body').textContent).toEqual('Some beautiful content :)')
+        expect(popoverDisplayed.querySelector('.popover-body').textContent).toBe('Some beautiful content :)')
         done()
       })
 
@@ -148,7 +148,7 @@ describe('Popover', () => {
 
         expect(popoverDisplayed).not.toBeNull()
         expect(popoverDisplayed.querySelector('.popover-body')).toBeNull()
-        expect(popoverDisplayed.querySelector('.popover-header').textContent).toEqual('Title, which does not require content')
+        expect(popoverDisplayed.querySelector('.popover-header').textContent).toBe('Title, which does not require content')
         done()
       })
 
@@ -175,7 +175,7 @@ describe('Popover', () => {
         const popoverDisplayed = document.querySelector('.popover')
 
         expect(popoverDisplayed).not.toBeNull()
-        expect(popoverDisplayed.querySelector('.popover-body').textContent).toEqual('Popover content')
+        expect(popoverDisplayed.querySelector('.popover-body').textContent).toBe('Popover content')
         expect(spy).toHaveBeenCalledTimes(0)
         if (times > 1) {
           done()
@@ -350,7 +350,7 @@ describe('Popover', () => {
       })
       expect(popover).toBeInstanceOf(Popover)
 
-      expect(popover._config.placement).toEqual('top')
+      expect(popover._config.placement).toBe('top')
     })
 
     it('should return the instance when exists without given configuration', () => {
@@ -368,7 +368,7 @@ describe('Popover', () => {
       expect(popover).toBeInstanceOf(Popover)
       expect(popover2).toEqual(popover)
 
-      expect(popover2._config.placement).toEqual('top')
+      expect(popover2._config.placement).toBe('top')
     })
   })
 })

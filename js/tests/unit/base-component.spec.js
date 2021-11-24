@@ -37,13 +37,13 @@ describe('Base Component', () => {
   describe('Static Methods', () => {
     describe('VERSION', () => {
       it('should return version', () => {
-        expect(typeof DummyClass.VERSION).toEqual('string')
+        expect(DummyClass.VERSION).toEqual(jasmine.any(String))
       })
     })
 
     describe('DATA_KEY', () => {
       it('should return plugin data key', () => {
-        expect(DummyClass.DATA_KEY).toEqual(`bs.${name}`)
+        expect(DummyClass.DATA_KEY).toBe(`bs.${name}`)
       })
     })
 
@@ -62,7 +62,7 @@ describe('Base Component', () => {
 
     describe('EVENT_KEY', () => {
       it('should return plugin event key', () => {
-        expect(DummyClass.EVENT_KEY).toEqual(`.bs.${name}`)
+        expect(DummyClass.EVENT_KEY).toBe(`.bs.${name}`)
       })
     })
   })
