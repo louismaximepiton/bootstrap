@@ -256,7 +256,7 @@ describe('Offcanvas', () => {
       const offCanvasEl = fixtureEl.querySelector('.offcanvas')
       const offCanvas = new Offcanvas(offCanvasEl)
       offCanvas.show()
-      expect(offCanvasEl.classList.contains('show')).toBeTrue()
+      expect(offCanvasEl).toHaveClass('show')
 
       spyOn(offCanvas, 'hide')
 
@@ -274,7 +274,7 @@ describe('Offcanvas', () => {
       const offCanvas = new Offcanvas(offCanvasEl)
       offCanvas.show()
 
-      expect(offCanvasEl.classList.contains('show')).toBeTrue()
+      expect(offCanvasEl).toHaveClass('show')
 
       spyOn(offCanvas._backdrop, 'show').and.callThrough()
       spyOn(EventHandler, 'trigger').and.callThrough()
@@ -292,7 +292,7 @@ describe('Offcanvas', () => {
       spyOn(offCanvas._backdrop, 'show').and.callThrough()
 
       offCanvasEl.addEventListener('shown.bs.offcanvas', () => {
-        expect(offCanvasEl.classList.contains('show')).toBeTrue()
+        expect(offCanvasEl).toHaveClass('show')
         expect(offCanvas._backdrop.show).toHaveBeenCalled()
         done()
       })
@@ -384,7 +384,7 @@ describe('Offcanvas', () => {
       offCanvas.show()
 
       offCanvasEl.addEventListener('hidden.bs.offcanvas', () => {
-        expect(offCanvasEl.classList.contains('show')).toBeFalse()
+        expect(offCanvasEl).not.toHaveClass('show')
         expect(offCanvas._backdrop.hide).toHaveBeenCalled()
         done()
       })
@@ -473,7 +473,7 @@ describe('Offcanvas', () => {
       const offCanvasEl = fixtureEl.querySelector('#offcanvasdiv1')
 
       offCanvasEl.addEventListener('shown.bs.offcanvas', () => {
-        expect(offCanvasEl.classList.contains('show')).toBeTrue()
+        expect(offCanvasEl).toHaveClass('show')
         expect(target.checked).toBeTrue()
         done()
       })

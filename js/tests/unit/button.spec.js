@@ -45,19 +45,19 @@ describe('Button', () => {
       const divTest = fixtureEl.querySelector('.test')
       const btnTestParent = fixtureEl.querySelector('.testParent')
 
-      expect(btn.classList.contains('active')).toBeFalse()
+      expect(btn).not.toHaveClass('active')
 
       btn.click()
 
-      expect(btn.classList.contains('active')).toBeTrue()
+      expect(btn).toHaveClass('active')
 
       btn.click()
 
-      expect(btn.classList.contains('active')).toBeFalse()
+      expect(btn).not.toHaveClass('active')
 
       divTest.click()
 
-      expect(btnTestParent.classList.contains('active')).toBeTrue()
+      expect(btnTestParent).toHaveClass('active')
     })
   })
 
@@ -69,12 +69,12 @@ describe('Button', () => {
       const button = new Button(btnEl)
 
       expect(btnEl.getAttribute('aria-pressed')).toBe('false')
-      expect(btnEl.classList.contains('active')).toBeFalse()
+      expect(btnEl).not.toHaveClass('active')
 
       button.toggle()
 
       expect(btnEl.getAttribute('aria-pressed')).toBe('true')
-      expect(btnEl.classList.contains('active')).toBeTrue()
+      expect(btnEl).toHaveClass('active')
     })
   })
 
@@ -121,7 +121,7 @@ describe('Button', () => {
       jQueryMock.fn.button.call(jQueryMock, 'toggle')
 
       expect(Button.getInstance(btnEl)).not.toBeNull()
-      expect(btnEl.classList.contains('active')).toBeTrue()
+      expect(btnEl).toHaveClass('active')
     })
 
     it('should just create a button instance without calling toggle', () => {
@@ -135,7 +135,7 @@ describe('Button', () => {
       jQueryMock.fn.button.call(jQueryMock)
 
       expect(Button.getInstance(btnEl)).not.toBeNull()
-      expect(btnEl.classList.contains('active')).toBeFalse()
+      expect(btnEl).not.toHaveClass('active')
     })
   })
 

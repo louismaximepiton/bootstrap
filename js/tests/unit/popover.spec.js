@@ -196,7 +196,7 @@ describe('Popover', () => {
       popoverEl.addEventListener('shown.bs.popover', () => {
         const tip = document.querySelector('.popover')
         expect(tip).not.toBeNull()
-        expect(tip.classList.contains('custom-class')).toBeTrue()
+        expect(tip).toHaveClass('custom-class')
         done()
       })
 

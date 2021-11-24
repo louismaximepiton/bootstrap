@@ -465,11 +465,11 @@ describe('Tooltip', () => {
       })
 
       tooltipEl.addEventListener('inserted.bs.tooltip', () => {
-        expect(tooltip.getTipElement().classList.contains('bs-tooltip-auto')).toBeTrue()
+        expect(tooltip.getTipElement()).toHaveClass('bs-tooltip-auto')
       })
 
       tooltipEl.addEventListener('shown.bs.tooltip', () => {
-        expect(tooltip.getTipElement().classList.contains('bs-tooltip-auto')).toBeTrue()
+        expect(tooltip.getTipElement()).toHaveClass('bs-tooltip-auto')
         expect(tooltip.getTipElement().getAttribute('data-popper-placement')).toBe('bottom')
         done()
       })
@@ -585,7 +585,7 @@ describe('Tooltip', () => {
         const tip = document.querySelector('.tooltip')
 
         expect(tip).not.toBeNull()
-        expect(tip.classList.contains('fade')).toBeFalse()
+        expect(tip).not.toHaveClass('fade')
         done()
       })
 
@@ -688,16 +688,16 @@ describe('Tooltip', () => {
       })
 
       setTimeout(() => {
-        expect(tooltip.getTipElement().classList.contains('show')).toBeTrue()
+        expect(tooltip.getTipElement()).toHaveClass('show')
         tooltipEl.dispatchEvent(createEvent('mouseout'))
 
         setTimeout(() => {
-          expect(tooltip.getTipElement().classList.contains('show')).toBeTrue()
+          expect(tooltip.getTipElement()).toHaveClass('show')
           tooltipEl.dispatchEvent(createEvent('mouseover'))
         }, 100)
 
         setTimeout(() => {
-          expect(tooltip.getTipElement().classList.contains('show')).toBeTrue()
+          expect(tooltip.getTipElement()).toHaveClass('show')
           expect(document.querySelectorAll('.tooltip')).toHaveSize(1)
           done()
         }, 200)
@@ -755,7 +755,7 @@ describe('Tooltip', () => {
         tooltipEl.dispatchEvent(createEvent('mouseout'))
 
         setTimeout(() => {
-          expect(tooltip.getTipElement().classList.contains('show')).toBeFalse()
+          expect(tooltip.getTipElement()).not.toHaveClass('show')
           tooltipEl.dispatchEvent(createEvent('mouseover'))
         }, 100)
 
@@ -809,7 +809,7 @@ describe('Tooltip', () => {
       tooltipEl.addEventListener('shown.bs.tooltip', () => {
         const tip = document.querySelector('.tooltip')
         expect(tip).not.toBeNull()
-        expect(tip.classList.contains('custom-class')).toBeTrue()
+        expect(tip).toHaveClass('custom-class')
         done()
       })
 
@@ -827,8 +827,8 @@ describe('Tooltip', () => {
       tooltipEl.addEventListener('shown.bs.tooltip', () => {
         const tip = document.querySelector('.tooltip')
         expect(tip).not.toBeNull()
-        expect(tip.classList.contains('custom-class')).toBeTrue()
-        expect(tip.classList.contains('custom-class-2')).toBeTrue()
+        expect(tip).toHaveClass('custom-class')
+        expect(tip).toHaveClass('custom-class-2')
         done()
       })
 
@@ -848,7 +848,7 @@ describe('Tooltip', () => {
         const tip = document.querySelector('.tooltip')
         expect(tip).not.toBeNull()
         expect(spy).toHaveBeenCalled()
-        expect(tip.classList.contains('custom-class')).toBeTrue()
+        expect(tip).toHaveClass('custom-class')
         done()
       })
 
@@ -1047,8 +1047,8 @@ describe('Tooltip', () => {
 
       tooltip.setContent(tip)
 
-      expect(tip.classList.contains('show')).toBeFalse()
-      expect(tip.classList.contains('fade')).toBeFalse()
+      expect(tip).not.toHaveClass('show')
+      expect(tip).not.toHaveClass('fade')
       expect(tip.querySelector('.tooltip-inner').textContent).toBe('Another tooltip')
     })
 
@@ -1060,10 +1060,10 @@ describe('Tooltip', () => {
       tooltip.show()
       const tip = () => tooltip.getTipElement()
 
-      expect(tip().classList.contains('show')).toEqual(true)
+      expect(tip()).toHaveClass('show')
       tooltip.setContent({ '.tooltip-inner': 'foo' })
 
-      expect(tip().classList.contains('show')).toEqual(true)
+      expect(tip()).toHaveClass('show')
       expect(tip().querySelector('.tooltip-inner').textContent).toBe('foo')
     })
 
@@ -1074,10 +1074,10 @@ describe('Tooltip', () => {
       const tooltip = new Tooltip(tooltipEl)
       const tip = () => tooltip.getTipElement()
 
-      expect(tip().classList.contains('show')).toEqual(false)
+      expect(tip()).not.toHaveClass('show')
       tooltip.setContent({ '.tooltip-inner': 'foo' })
 
-      expect(tip().classList.contains('show')).toEqual(false)
+      expect(tip()).not.toHaveClass('show')
       expect(tip().querySelector('.tooltip-inner').textContent).toBe('foo')
     })
   })
@@ -1092,7 +1092,7 @@ describe('Tooltip', () => {
       })
 
       tooltipEl.addEventListener('inserted.bs.tooltip', () => {
-        expect(tooltip.getTipElement().classList.contains('bs-tooltip-auto')).toBeTrue()
+        expect(tooltip.getTipElement()).toHaveClass('bs-tooltip-auto')
         done()
       })
 
@@ -1108,7 +1108,7 @@ describe('Tooltip', () => {
       })
 
       tooltipEl.addEventListener('inserted.bs.tooltip', () => {
-        expect(tooltip.getTipElement().classList.contains('bs-tooltip-auto')).toBeTrue()
+        expect(tooltip.getTipElement()).toHaveClass('bs-tooltip-auto')
         done()
       })
 

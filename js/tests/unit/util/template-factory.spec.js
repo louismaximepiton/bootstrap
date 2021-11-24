@@ -86,15 +86,15 @@ describe('TemplateFactory', () => {
         const factory = new TemplateFactory({
           extraClass: 'testClass'
         })
-        expect(factory.toHtml().classList.contains('testClass')).toBeTrue()
+        expect(factory.toHtml()).toHaveClass('testClass')
       })
 
       it('should add extra classes', () => {
         const factory = new TemplateFactory({
           extraClass: 'testClass testClass2'
         })
-        expect(factory.toHtml().classList.contains('testClass')).toBeTrue()
-        expect(factory.toHtml().classList.contains('testClass2')).toBeTrue()
+        expect(factory.toHtml()).toHaveClass('testClass')
+        expect(factory.toHtml()).toHaveClass('testClass2')
       })
 
       it('should resolve class if function is given', () => {
@@ -105,7 +105,7 @@ describe('TemplateFactory', () => {
           }
         })
 
-        expect(factory.toHtml().classList.contains('testClass')).toBeTrue()
+        expect(factory.toHtml()).toHaveClass('testClass')
       })
     })
   })

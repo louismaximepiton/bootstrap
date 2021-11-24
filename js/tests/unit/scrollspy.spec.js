@@ -14,7 +14,7 @@ describe('ScrollSpy', () => {
     const scrollHeight = Math.ceil(contentEl.scrollTop + Manipulator.position(target).top) + paddingTop
 
     function listener() {
-      expect(element.classList.contains('active')).toBeTrue()
+      expect(element).toHaveClass('active')
       contentEl.removeEventListener('scroll', listener)
       expect(scrollSpy._process).toHaveBeenCalled()
       spy.calls.reset()
@@ -120,7 +120,7 @@ describe('ScrollSpy', () => {
       spyOn(scrollSpy, '_process').and.callThrough()
 
       scrollSpyEl.addEventListener('scroll', () => {
-        expect(rootEl.classList.contains('active')).toBeTrue()
+        expect(rootEl).toHaveClass('active')
         expect(scrollSpy._process).toHaveBeenCalled()
         done()
       })
@@ -163,7 +163,7 @@ describe('ScrollSpy', () => {
       spyOn(scrollSpy, '_process').and.callThrough()
 
       scrollSpyEl.addEventListener('scroll', () => {
-        expect(rootEl.classList.contains('active')).toBeTrue()
+        expect(rootEl).toHaveClass('active')
         expect(scrollSpy._process).toHaveBeenCalled()
         done()
       })
@@ -197,9 +197,9 @@ describe('ScrollSpy', () => {
       spyOn(scrollSpy, '_process').and.callThrough()
 
       contentEl.addEventListener('scroll', () => {
-        expect(fixtureEl.querySelector('#one-link').classList.contains('active')).toBeFalse()
-        expect(fixtureEl.querySelector('#two-link').classList.contains('active')).toBeTrue()
-        expect(fixtureEl.querySelector('#three-link').classList.contains('active')).toBeFalse()
+        expect(fixtureEl.querySelector('#one-link')).not.toHaveClass('active')
+        expect(fixtureEl.querySelector('#two-link')).toHaveClass('active')
+        expect(fixtureEl.querySelector('#three-link')).not.toHaveClass('active')
         expect(scrollSpy._process).toHaveBeenCalled()
         done()
       })

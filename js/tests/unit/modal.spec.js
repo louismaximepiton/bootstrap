@@ -1026,7 +1026,7 @@ describe('Modal', () => {
       })
       modalEl1.addEventListener('hidden.bs.modal', () => {
         expect(Modal.getInstance(modalEl2)).not.toBeNull()
-        expect(modalEl2.classList.contains('show')).toBeTrue()
+        expect(modalEl2).toHaveClass('show')
         done()
       })
       modal1.show()

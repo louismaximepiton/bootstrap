@@ -36,7 +36,7 @@ describe('Backdrop', () => {
       instance.show(() => {
         expect(getElements()).toHaveSize(1)
         for (const el of getElements()) {
-          expect(el.classList.contains(CLASS_NAME_SHOW)).toBeTrue()
+          expect(el).toHaveClass(CLASS_NAME_SHOW)
         }
 
         done()
@@ -69,7 +69,7 @@ describe('Backdrop', () => {
       instance.show(() => {
         expect(getElements()).toHaveSize(1)
         for (const el of getElements()) {
-          expect(el.classList.contains(CLASS_NAME_FADE)).toBeTrue()
+          expect(el).toHaveClass(CLASS_NAME_FADE)
         }
 
         done()
@@ -105,7 +105,7 @@ describe('Backdrop', () => {
 
       instance.show()
       instance.hide(() => {
-        expect(elem.classList.contains(CLASS_NAME_SHOW)).toBeFalse()
+        expect(elem).not.toHaveClass(CLASS_NAME_SHOW)
         done()
       })
     })
