@@ -669,7 +669,7 @@ describe('Tooltip', () => {
 
       setTimeout(() => {
         expect(tooltip.show).toHaveBeenCalled()
-        expect(document.querySelectorAll('.tooltip').length).toBe(0)
+        expect(document.querySelectorAll('.tooltip')).toHaveSize(0)
         done()
       }, 200)
 
@@ -698,7 +698,7 @@ describe('Tooltip', () => {
 
         setTimeout(() => {
           expect(tooltip.getTipElement().classList.contains('show')).toBeTrue()
-          expect(document.querySelectorAll('.tooltip').length).toEqual(1)
+          expect(document.querySelectorAll('.tooltip')).toHaveSize(1)
           done()
         }, 200)
       }, 0)

@@ -321,7 +321,7 @@ describe('Tab', () => {
       const secondNavTab = new Tab(secondNavEl)
 
       secondNavEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelectorAll('.nav-tab').length).toBe(2)
+        expect(fixtureEl.querySelectorAll('.nav-tab')).toHaveSize(2)
         done()
       })
 
@@ -653,7 +653,7 @@ describe('Tab', () => {
       const secondNavEl = fixtureEl.querySelector('#secondNav')
 
       secondNavEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelectorAll('.show').length).toBe(0)
+        expect(fixtureEl.querySelectorAll('.show')).toHaveSize(0)
         done()
       })
 
@@ -679,7 +679,7 @@ describe('Tab', () => {
       const secondNavEl = fixtureEl.querySelector('#secondNav')
 
       secondNavEl.addEventListener('shown.bs.tab', () => {
-        expect(fixtureEl.querySelectorAll('.show').length).toBe(1)
+        expect(fixtureEl.querySelectorAll('.show')).toHaveSize(1)
         done()
       })
 

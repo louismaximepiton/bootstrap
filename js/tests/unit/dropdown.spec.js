@@ -1248,29 +1248,29 @@ describe('Dropdown', () => {
 
       const triggerDropdownList = fixtureEl.querySelectorAll('[data-bs-toggle="dropdown"]')
 
-      expect(triggerDropdownList.length).toBe(2)
+      expect(triggerDropdownList).toHaveSize(2)
 
       const [triggerDropdownFirst, triggerDropdownLast] = triggerDropdownList
 
       triggerDropdownFirst.addEventListener('shown.bs.dropdown', () => {
         expect(triggerDropdownFirst.classList.contains('show')).toBeTrue()
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(1)
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show')).toHaveSize(1)
         document.body.click()
       })
 
       triggerDropdownFirst.addEventListener('hidden.bs.dropdown', () => {
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(0)
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show')).toHaveSize(0)
         triggerDropdownLast.click()
       })
 
       triggerDropdownLast.addEventListener('shown.bs.dropdown', () => {
         expect(triggerDropdownLast.classList.contains('show')).toBeTrue()
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(1)
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show')).toHaveSize(1)
         document.body.click()
       })
 
       triggerDropdownLast.addEventListener('hidden.bs.dropdown', () => {
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(0)
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show')).toHaveSize(0)
         done()
       })
 
@@ -1296,13 +1296,13 @@ describe('Dropdown', () => {
 
       const triggerDropdownList = fixtureEl.querySelectorAll('[data-bs-toggle="dropdown"]')
 
-      expect(triggerDropdownList.length).toBe(2)
+      expect(triggerDropdownList).toHaveSize(2)
 
       const [triggerDropdownFirst, triggerDropdownLast] = triggerDropdownList
 
       triggerDropdownFirst.addEventListener('shown.bs.dropdown', () => {
         expect(triggerDropdownFirst.classList.contains('show')).toBeTrue()
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(1, 'only one dropdown is shown')
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show')).toHaveSize(1)
 
         const keyup = createEvent('keyup')
         keyup.key = 'Tab'
@@ -1311,13 +1311,13 @@ describe('Dropdown', () => {
       })
 
       triggerDropdownFirst.addEventListener('hidden.bs.dropdown', () => {
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(0, '"show" class removed')
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show')).toHaveSize(0)
         triggerDropdownLast.click()
       })
 
       triggerDropdownLast.addEventListener('shown.bs.dropdown', () => {
         expect(triggerDropdownLast.classList.contains('show')).toBeTrue()
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(1, 'only one dropdown is shown')
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show')).toHaveSize(1)
 
         const keyup = createEvent('keyup')
         keyup.key = 'Tab'
@@ -1326,7 +1326,7 @@ describe('Dropdown', () => {
       })
 
       triggerDropdownLast.addEventListener('hidden.bs.dropdown', () => {
-        expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toBe(0, '"show" class removed')
+        expect(fixtureEl.querySelectorAll('.dropdown-menu.show')).toHaveSize(0)
         done()
       })
 

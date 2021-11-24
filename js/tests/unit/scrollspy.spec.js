@@ -82,7 +82,7 @@ describe('ScrollSpy', () => {
         target: '#navigation'
       })
 
-      expect(scrollSpy._targets.length).toBe(2)
+      expect(scrollSpy._targets).toHaveSize(2)
     })
 
     it('should only switch "active" class on current target', done => {
@@ -361,7 +361,7 @@ describe('ScrollSpy', () => {
         expect(spy).toHaveBeenCalled()
         spy.calls.reset()
         if (firstTime) {
-          expect(fixtureEl.querySelectorAll('.active').length).toBe(1)
+          expect(fixtureEl.querySelectorAll('.active')).toHaveSize(1)
           expect(active.getAttribute('id')).toBe('two-link')
           firstTime = false
           contentEl.scrollTop = 0
@@ -409,12 +409,12 @@ describe('ScrollSpy', () => {
         expect(spy).toHaveBeenCalled()
         spy.calls.reset()
         if (firstTime) {
-          expect(fixtureEl.querySelectorAll('.active').length).toBe(1)
+          expect(fixtureEl.querySelectorAll('.active')).toHaveSize(1)
           expect(active.getAttribute('id')).toBe('two-link')
           firstTime = false
           contentEl.scrollTop = negativeHeight
         } else {
-          expect(fixtureEl.querySelectorAll('.active').length).toBe(1)
+          expect(fixtureEl.querySelectorAll('.active')).toHaveSize(1)
           expect(active.getAttribute('id')).toBe('one-link')
           done()
         }

@@ -45,7 +45,7 @@ describe('Alert', () => {
       const button = document.querySelector('button')
 
       button.click()
-      expect(document.querySelectorAll('.alert').length).toBe(0)
+      expect(document.querySelectorAll('.alert')).toHaveSize(0)
     })
 
     it('should close an alert without instantiating it manually with the parent selector', () => {
@@ -58,7 +58,7 @@ describe('Alert', () => {
       const button = document.querySelector('button')
 
       button.click()
-      expect(document.querySelectorAll('.alert').length).toBe(0)
+      expect(document.querySelectorAll('.alert')).toHaveSize(0)
     })
   })
 
@@ -71,7 +71,7 @@ describe('Alert', () => {
       const alert = new Alert(alertEl)
 
       alertEl.addEventListener('closed.bs.alert', () => {
-        expect(document.querySelectorAll('.alert').length).toBe(0)
+        expect(document.querySelectorAll('.alert')).toHaveSize(0)
         expect(spy).not.toHaveBeenCalled()
         done()
       })
@@ -90,7 +90,7 @@ describe('Alert', () => {
       })
 
       alertEl.addEventListener('closed.bs.alert', () => {
-        expect(document.querySelectorAll('.alert').length).toBe(0)
+        expect(document.querySelectorAll('.alert')).toHaveSize(0)
         done()
       })
 

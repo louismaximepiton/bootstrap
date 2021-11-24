@@ -30,11 +30,11 @@ describe('Backdrop', () => {
       })
       const getElements = () => document.querySelectorAll(CLASS_BACKDROP)
 
-      expect(getElements().length).toBe(0)
+      expect(getElements()).toHaveSize(0)
 
       instance.show()
       instance.show(() => {
-        expect(getElements().length).toBe(1)
+        expect(getElements()).toHaveSize(1)
         for (const el of getElements()) {
           expect(el.classList.contains(CLASS_NAME_SHOW)).toBeTrue()
         }
@@ -50,9 +50,9 @@ describe('Backdrop', () => {
       })
       const getElements = () => document.querySelectorAll(CLASS_BACKDROP)
 
-      expect(getElements().length).toBe(0)
+      expect(getElements()).toHaveSize(0)
       instance.show(() => {
-        expect(getElements().length).toBe(0)
+        expect(getElements()).toHaveSize(0)
         done()
       })
     })
@@ -64,10 +64,10 @@ describe('Backdrop', () => {
       })
       const getElements = () => document.querySelectorAll(CLASS_BACKDROP)
 
-      expect(getElements().length).toBe(0)
+      expect(getElements()).toHaveSize(0)
 
       instance.show(() => {
-        expect(getElements().length).toBe(1)
+        expect(getElements()).toHaveSize(1)
         for (const el of getElements()) {
           expect(el.classList.contains(CLASS_NAME_FADE)).toBeTrue()
         }
@@ -86,11 +86,11 @@ describe('Backdrop', () => {
 
       const getElements = () => document.body.querySelectorAll(CLASS_BACKDROP)
 
-      expect(getElements().length).toBe(0)
+      expect(getElements()).toHaveSize(0)
       instance.show(() => {
-        expect(getElements().length).toBe(1)
+        expect(getElements()).toHaveSize(1)
         instance.hide(() => {
-          expect(getElements().length).toBe(0)
+          expect(getElements()).toHaveSize(0)
           done()
         })
       })
@@ -118,11 +118,11 @@ describe('Backdrop', () => {
       const getElements = () => document.querySelectorAll(CLASS_BACKDROP)
       const spy = spyOn(instance, 'dispose').and.callThrough()
 
-      expect(getElements().length).toBe(0)
+      expect(getElements()).toHaveSize(0)
       expect(instance._isAppended).toBeFalse()
       instance.show(() => {
         instance.hide(() => {
-          expect(getElements().length).toBe(0)
+          expect(getElements()).toHaveSize(0)
           expect(spy).not.toHaveBeenCalled()
           expect(instance._isAppended).toBeFalse()
           done()
@@ -145,7 +145,7 @@ describe('Backdrop', () => {
       instance.show(() => {
         wrapper.remove()
         instance.hide(() => {
-          expect(getElements().length).toBe(0)
+          expect(getElements()).toHaveSize(0)
           done()
         })
       })
