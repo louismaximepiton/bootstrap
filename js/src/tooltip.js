@@ -272,8 +272,7 @@ class Tooltip extends BaseComponent {
       }
     }
 
-    const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE)
-    this._queueCallback(complete, this.tip, isAnimated)
+    this._queueCallback(complete, this.tip, this._isAnimated())
   }
 
   hide() {
@@ -316,8 +315,7 @@ class Tooltip extends BaseComponent {
     this._activeTrigger[TRIGGER_FOCUS] = false
     this._activeTrigger[TRIGGER_HOVER] = false
 
-    const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE)
-    this._queueCallback(complete, this.tip, isAnimated)
+    this._queueCallback(complete, this.tip, this._isAnimated())
     this._hoverState = ''
   }
 
@@ -348,7 +346,7 @@ class Tooltip extends BaseComponent {
 
     tip.setAttribute('id', tipId)
 
-    if (this._config.animation) {
+    if (this._isAnimated()) {
       tip.classList.add(CLASS_NAME_FADE)
     }
 
@@ -401,6 +399,10 @@ class Tooltip extends BaseComponent {
   // Private
   _initializeOnDelegatedTarget(event, context) {
     return context || this.constructor.getOrCreateInstance(event.delegateTarget, this._getDelegateConfig())
+  }
+
+  _isAnimated() {
+    return this._config.animation || (this.tip && this.tip.classList.contains(CLASS_NAME_FADE))
   }
 
   _getOffset() {
