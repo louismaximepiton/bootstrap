@@ -50,7 +50,7 @@ describe('Data', () => {
 
     Data.set(div, TEST_KEY, data)
 
-    expect(Data.get(div, TEST_KEY)).toBe(data)
+    expect(Data.get(div, TEST_KEY)).toEqual(data)
   })
 
   it('should overwrite data if something is already stored', () => {
@@ -60,8 +60,8 @@ describe('Data', () => {
     Data.set(div, TEST_KEY, data)
     Data.set(div, TEST_KEY, copy)
 
-    expect(Data.get(div, TEST_KEY)).not.toBe(data)
-    expect(Data.get(div, TEST_KEY)).toBe(copy)
+    expect(Data.get(div, TEST_KEY)).not.toEqual(data)
+    expect(Data.get(div, TEST_KEY)).toEqual(copy)
   })
 
   it('should do nothing when an element has nothing stored', () => {
@@ -76,7 +76,7 @@ describe('Data', () => {
     Data.set(div, TEST_KEY, data)
     Data.remove(div, UNKNOWN_KEY)
 
-    expect(Data.get(div, TEST_KEY)).toBe(data)
+    expect(Data.get(div, TEST_KEY)).toEqual(data)
   })
 
   it('should remove data for a given key', () => {
