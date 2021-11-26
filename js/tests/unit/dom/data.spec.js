@@ -64,7 +64,7 @@ describe('Data', () => {
     expect(Data.get(div, TEST_KEY)).toBe(copy)
   })
 
-  it('should do nothing when an element have nothing stored', () => {
+  it('should do nothing when an element has nothing stored', () => {
     Data.remove(div, TEST_KEY)
 
     expect().nothing()
