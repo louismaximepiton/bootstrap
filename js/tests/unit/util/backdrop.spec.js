@@ -258,10 +258,7 @@ describe('Backdrop', () => {
       })
 
       it('Should appended on any element given by the proper config', done => {
-        fixtureEl.innerHTML = [
-          '<div id="wrapper">',
-          '</div>'
-        ].join('')
+        fixtureEl.innerHTML = '<div id="wrapper"></div>'
 
         const wrapper = fixtureEl.querySelector('#wrapper')
         const instance = new Backdrop({

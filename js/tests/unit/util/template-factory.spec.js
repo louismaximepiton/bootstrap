@@ -113,11 +113,11 @@ describe('TemplateFactory', () => {
   describe('Content', () => {
     it('add simple text content', () => {
       const template = [
-        '<div>' +
-        '<div class="foo"></div>' +
-        '<div class="foo2"></div>' +
+        '<div>',
+        '  <div class="foo"></div>',
+        '  <div class="foo2"></div>',
         '</div>'
-      ].join(' ')
+      ].join('')
 
       const factory = new TemplateFactory({
         template,
@@ -248,11 +248,11 @@ describe('TemplateFactory', () => {
   describe('changeContent', () => {
     it('should change Content', () => {
       const template = [
-        '<div>' +
-        '<div class="foo"></div>' +
-        '<div class="foo2"></div>' +
+        '<div>',
+        '  <div class="foo"></div>',
+        '  <div class="foo2"></div>',
         '</div>'
-      ].join(' ')
+      ].join('')
 
       const factory = new TemplateFactory({
         template,
@@ -276,11 +276,11 @@ describe('TemplateFactory', () => {
 
     it('should change only the given, content', () => {
       const template = [
-        '<div>' +
-        '<div class="foo"></div>' +
-        '<div class="foo2"></div>' +
+        '<div>',
+        '  <div class="foo"></div>',
+        '  <div class="foo2"></div>',
         '</div>'
-      ].join(' ')
+      ].join('')
 
       const factory = new TemplateFactory({
         template,
