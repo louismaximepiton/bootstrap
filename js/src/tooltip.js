@@ -522,7 +522,7 @@ class Tooltip extends BaseComponent {
 
     context._hoverState = HOVER_STATE_SHOW
 
-    if (!context._config.delay || !context._config.delay.show) {
+    if (!context._config.delay.show) {
       context.show()
       return
     }
@@ -551,7 +551,7 @@ class Tooltip extends BaseComponent {
 
     context._hoverState = HOVER_STATE_OUT
 
-    if (!context._config.delay || !context._config.delay.hide) {
+    if (!context._config.delay.hide) {
       context.hide()
       return
     }
