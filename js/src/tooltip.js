@@ -315,7 +315,7 @@ class Tooltip extends BaseComponent {
   }
 
   update() {
-    if (this._popper !== null) {
+    if (this._popper) {
       this._popper.update()
     }
   }
