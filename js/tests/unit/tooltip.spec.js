@@ -701,7 +701,7 @@ describe('Tooltip', () => {
           expect(document.querySelectorAll('.tooltip').length).toEqual(1)
           done()
         }, 200)
-      }, 0)
+      }, 3)
 
       tooltipEl.dispatchEvent(createEvent('mouseover'))
     })
@@ -764,7 +764,7 @@ describe('Tooltip', () => {
           expect(tooltip.getTipElement().getAttribute('data-popper-placement')).toBe('top')
           done()
         }, 200)
-      }, 0)
+      }, 3)
 
       tooltipEl.dispatchEvent(createEvent('mouseover'))
     })
