@@ -182,13 +182,13 @@ class ScrollSpy extends BaseComponent {
       return
     }
 
-    for (const i of this._offsets.keys()) {
-      const isActiveTarget = this._activeTarget !== this._targets[i] &&
-          scrollTop >= this._offsets[i] &&
-          (typeof this._offsets[i + 1] === 'undefined' || scrollTop < this._offsets[i + 1])
+    for (const index of this._offsets.keys()) {
+      const isActiveTarget = this._activeTarget !== this._targets[index] &&
+          scrollTop >= this._offsets[index] &&
+          (typeof this._offsets[index + 1] === 'undefined' || scrollTop < this._offsets[index + 1])
 
       if (isActiveTarget) {
-        this._activate(this._targets[i])
+        this._activate(this._targets[index])
       }
     }
   }

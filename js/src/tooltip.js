@@ -262,12 +262,12 @@ class Tooltip extends BaseComponent {
     }
 
     const complete = () => {
-      const prevHoverState = this._hoverState
+      const previousHoverState = this._hoverState
 
       this._hoverState = null
       EventHandler.trigger(this._element, this.constructor.Event.SHOWN)
 
-      if (prevHoverState === HOVER_STATE_OUT) {
+      if (previousHoverState === HOVER_STATE_OUT) {
         this._leave(null, this)
       }
     }
@@ -421,7 +421,7 @@ class Tooltip extends BaseComponent {
     const { offset } = this._config
 
     if (typeof offset === 'string') {
-      return offset.split(',').map(val => Number.parseInt(val, 10))
+      return offset.split(',').map(value => Number.parseInt(value, 10))
     }
 
     if (typeof offset === 'function') {
